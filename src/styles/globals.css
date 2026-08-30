@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --color-white: #ffffff;
+  --color-surface: #f7f8fa;
+  --color-navy: #0b1424;
+  --color-charcoal: #1b2330;
+  --color-muted: #5a6578;
+  --color-border: #e2e5ea;
+  --color-accent: #1a56a0;
+  --color-accent-hover: #144785;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-charcoal font-body antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-navy;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 18%, white);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
