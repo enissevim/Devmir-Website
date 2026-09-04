@@ -10,7 +10,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main id="main-content" className="flex-1 pt-[72px]">
+      <main id="main-content" className="flex-1 pt-[84px]">
         {children}
       </main>
       <Footer />

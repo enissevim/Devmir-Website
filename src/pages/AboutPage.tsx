@@ -107,12 +107,7 @@ export function AboutPage() {
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/75">{content.cta.subcopy}</p>
               <div className="mt-10">
-                <Button
-                  as="a"
-                  href={content.cta.button.href}
-                  variant="secondary"
-                  className="border-white/20 bg-white text-navy hover:border-white hover:bg-white/90"
-                >
+                <Button as="a" href={content.cta.button.href} variant="primary-outline">
                   {content.cta.button.label}
                 </Button>
               </div>

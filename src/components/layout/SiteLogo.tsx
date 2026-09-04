@@ -12,7 +12,7 @@ export function SiteLogo({ linked = true, className = '' }: SiteLogoProps) {
     <img
       src={devmirLogo}
       alt={site.shortName}
-      className="h-8 w-auto object-contain sm:h-9"
+      className="h-9 w-auto object-contain sm:h-10"
       width={755}
       height={331}
     />

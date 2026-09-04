@@ -92,7 +92,7 @@ export function Header() {
             : 'border-b border-transparent bg-white'
         }`}
       >
-        <Container as="div" className="flex h-[72px] items-center justify-between gap-4 xl:gap-8">
+        <Container as="div" className="flex h-[84px] items-center justify-between gap-4 xl:gap-8">
           <SiteLogo />
 
           <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Main navigation">

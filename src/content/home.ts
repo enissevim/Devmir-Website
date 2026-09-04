@@ -223,7 +223,7 @@ export const homeContent = {
           container:
             'relative flex aspect-[2/1] min-h-[200px] items-center justify-center overflow-hidden bg-gradient-to-br from-green-muted via-white to-green-light/20 sm:min-h-[240px]',
           image:
-            'relative z-10 mx-auto h-auto max-h-36 w-full max-w-[580px] object-contain sm:max-h-40',
+            'relative z-10 mx-auto h-auto max-h-40 w-full max-w-[640px] object-contain sm:max-h-44',
           overlay: 'absolute inset-0 bg-green/5 mix-blend-multiply',
           accent: 'border-t-green',
         },

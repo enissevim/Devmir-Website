@@ -10,11 +10,6 @@ import { submitNetlifyForm } from '@/lib/netlifyForm'
 import { site } from '@/content/site'
 import { contactContent, contactMeta } from '@/content/contact'
 
-const audiencePanelStyles = {
-  dark: 'bg-accent text-white',
-  lightGreen: 'bg-green-light text-white',
-} as const
-
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -83,34 +78,25 @@ export function ContactPage() {
       />
 
       <Section variant="white" className="pb-0">
-        <div className="grid lg:grid-cols-2">
-          {content.audiences.map((audience, index) => {
-            const isColoredPanel = audience.variant === 'dark' || audience.variant === 'lightGreen'
-
-            return (
-            <Reveal key={audience.title} delay={index * 0.08}>
+        <Reveal className="bg-accent">
+          <div className="grid lg:grid-cols-2">
+            {content.audiences.map((audience, index) => (
               <div
-                className={`flex min-h-[240px] flex-col justify-center px-5 py-12 sm:px-8 lg:min-h-[280px] lg:px-16 lg:py-16 xl:px-20 ${audiencePanelStyles[audience.variant]}`}
+                key={audience.title}
+                className={`flex min-h-[240px] flex-col justify-center px-5 py-12 text-white sm:px-8 lg:min-h-[280px] lg:px-16 lg:py-16 xl:px-20 ${
+                  index > 0 ? 'border-t border-white/20 lg:border-t-0 lg:border-l' : ''
+                }`}
               >
-                <h2
-                  className={`font-display text-[clamp(1.375rem,2.5vw,1.75rem)] font-semibold leading-tight ${
-                    isColoredPanel ? 'text-white' : 'text-navy'
-                  }`}
-                >
+                <h2 className="font-display text-[clamp(1.375rem,2.5vw,1.75rem)] font-semibold leading-tight text-white">
                   {audience.title}
                 </h2>
-                <p
-                  className={`mt-4 max-w-md text-base leading-relaxed ${
-                    isColoredPanel ? 'text-white/75' : 'text-charcoal/80'
-                  }`}
-                >
+                <p className="mt-4 max-w-md text-base leading-relaxed text-white/75">
                   {audience.description}
                 </p>
               </div>
-            </Reveal>
-            )
-          })}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       <Section variant="surface">
@@ -302,12 +288,7 @@ export function ContactPage() {
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/75">{content.cta.subcopy}</p>
               <div className="mt-10">
-                <Button
-                  as="a"
-                  href={content.cta.button.href}
-                  variant="secondary"
-                  className="border-white/20 bg-white text-navy hover:border-white hover:bg-white/90"
-                >
+                <Button as="a" href={content.cta.button.href} variant="primary-outline">
                   {content.cta.button.label}
                 </Button>
               </div>

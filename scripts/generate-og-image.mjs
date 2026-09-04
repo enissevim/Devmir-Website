@@ -4,6 +4,7 @@ import sharp from 'sharp'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const LOGO = join(ROOT, 'src', 'assets', 'images', 'devmir-logo.png')
+const FAVICON_SOURCE = join(ROOT, 'src', 'assets', 'images', 'favicon-source.png')
 const PUBLIC = join(ROOT, 'public')
 
 const WIDTH = 1200
@@ -79,18 +80,9 @@ for (const page of ogPages) {
   console.log(`Generated ${output} (${meta.width}x${meta.height})`)
 }
 
-const faviconLogo = await sharp(LOGO).resize(22, null, { fit: 'inside' }).png().toBuffer()
+await sharp(FAVICON_SOURCE).resize(32, 32, { fit: 'cover' }).png().toFile(join(PUBLIC, 'favicon.png'))
 
-await sharp({
-  create: {
-    width: 32,
-    height: 32,
-    channels: 4,
-    background: { r: 0, g: 68, b: 27, alpha: 1 },
-  },
-})
-  .composite([{ input: faviconLogo, gravity: 'centre' }])
-  .png()
-  .toFile(join(PUBLIC, 'favicon.png'))
+await sharp(FAVICON_SOURCE).resize(180, 180, { fit: 'cover' }).png().toFile(join(PUBLIC, 'apple-touch-icon.png'))
 
 console.log(`Generated ${join(PUBLIC, 'favicon.png')} (32x32)`)
+console.log(`Generated ${join(PUBLIC, 'apple-touch-icon.png')} (180x180)`)

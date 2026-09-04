@@ -21,13 +21,11 @@ export const contactContent = {
       title: 'International manufacturers and brands',
       description:
         'Discuss U.S. market entry, marketplace access, fulfillment, and operational support for established manufacturers and brands entering the United States.',
-      variant: 'dark' as const,
     },
     {
       title: 'U.S. retailers and partners',
       description:
         'Discuss product sourcing, supply relationships, private-label programs, and partnership opportunities with an established U.S. operator.',
-      variant: 'lightGreen' as const,
     },
   ],
 

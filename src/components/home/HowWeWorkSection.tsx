@@ -21,14 +21,8 @@ export function HowWeWorkSection() {
         <div className="mt-14 lg:mt-16">
           <div className="hidden lg:grid lg:grid-cols-3 lg:gap-0">
             {howWeWork.steps.map((step, index) => (
-              <Reveal key={step.number} delay={index * 0.06} className="relative">
+              <Reveal key={step.number} delay={index * 0.06}>
                 <div className="px-8 first:pl-0 last:pr-0">
-                  {index < howWeWork.steps.length - 1 && (
-                    <div
-                      className="absolute right-0 top-10 h-px w-full translate-x-1/2 bg-border"
-                      aria-hidden="true"
-                    />
-                  )}
                   <p className="font-display text-[3.5rem] font-bold leading-none tracking-[-0.04em] text-navy/10">
                     {step.number}
                   </p>
