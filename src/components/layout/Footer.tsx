@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { site } from '@/content/site'
+import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Rule } from '@/components/ui/Rule'
 import { normalizeInternalPath } from '@/lib/paths'
+import { SiteLogo } from './SiteLogo'
 
 function FooterLink({ href, label }: { href: string; label: string }) {
   if (href.startsWith('http')) {
@@ -43,12 +45,17 @@ export function Footer() {
   const { contact, footer } = site
 
   return (
-    <footer className="border-t border-border bg-white pt-16 pb-10">
+    <footer className="border-t border-green/10 bg-white pt-16 pb-10">
       <Container>
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
-            <p className="font-display text-lg font-bold text-navy">{site.shortName}</p>
+            <SiteLogo linked={false} />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">{footer.tagline}</p>
+            <div className="mt-6">
+              <Button as="a" href="/contact/" variant="primary" className="px-5 py-2.5 text-sm">
+                Start a Conversation
+              </Button>
+            </div>
           </div>
 
           <div>

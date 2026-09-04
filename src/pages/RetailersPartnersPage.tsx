@@ -19,15 +19,22 @@ export function RetailersPartnersPage() {
         eyebrow="Retailers & Partners"
         headline={content.hero.headline}
         subcopy={content.hero.subcopy}
+        image={content.hero.image}
+        imageAlt={content.hero.imageAlt}
+        imageWidth={content.hero.imageWidth}
+        imageHeight={content.hero.imageHeight}
       />
 
       <Section variant="surface">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Capabilities" headline="What we provide" />
+            <SectionHeading
+              eyebrow={content.support.eyebrow}
+              headline={content.support.headline}
+            />
           </Reveal>
           <div className="mt-12 grid gap-10 border-t border-border pt-12 md:grid-cols-3 md:gap-8">
-            {content.coreAreas.map((item, index) => (
+            {content.support.items.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.05}>
                 <h2 className="font-display text-xl font-semibold text-navy">{item.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-muted">{item.description}</p>
@@ -40,14 +47,18 @@ export function RetailersPartnersPage() {
       <Section variant="white">
         <Container>
           <Reveal>
-            <SectionHeading headline={content.whyDevmir.headline} />
+            <SectionHeading
+              eyebrow={content.whyDevmir.eyebrow}
+              headline={content.whyDevmir.headline}
+              summary={content.whyDevmir.intro}
+            />
           </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
             {content.whyDevmir.points.map((point, index) => (
               <Reveal key={point.title} delay={index * 0.05}>
                 <div className="border-t border-border pt-8">
                   <h2 className="font-display text-lg font-semibold text-navy">{point.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{point.description}</p>
+                  <p className="mt-3 text-base leading-relaxed text-muted">{point.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -58,19 +69,27 @@ export function RetailersPartnersPage() {
       <Section variant="surface" className="pb-0">
         <Container>
           <Reveal>
-            <SectionHeading headline={content.marketplace.headline} />
+            <SectionHeading
+              eyebrow={content.activeInMarket.eyebrow}
+              headline={content.activeInMarket.headline}
+              summary={content.activeInMarket.intro}
+            />
             <p className="mt-6 font-display text-xs font-semibold uppercase tracking-[0.1em] text-muted sm:text-sm">
-              {content.marketplace.retailers}
+              {content.activeInMarket.retailers}
             </p>
           </Reveal>
         </Container>
         <Reveal className="mt-12 border-y border-border bg-white py-8 sm:py-12">
           <Container>
             <ProofBand
-              image={content.marketplace.image}
-              alt={content.marketplace.imageAlt}
+              image={content.activeInMarket.image}
+              alt={content.activeInMarket.imageAlt}
+              caption={content.activeInMarket.caption}
               variant="prominent"
             />
+            <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-muted">
+              {content.activeInMarket.summary}
+            </p>
           </Container>
         </Reveal>
       </Section>

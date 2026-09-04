@@ -11,7 +11,7 @@ export function OurBrandsSection() {
   const prefersReducedMotion = usePrefersReducedMotion()
 
   return (
-    <Section variant="white" id="our-brands" ariaLabelledby="our-brands-heading">
+    <Section variant="surface" id="our-brands" ariaLabelledby="our-brands-heading">
       <Container>
         <Reveal>
           <SectionHeading
@@ -24,7 +24,7 @@ export function OurBrandsSection() {
 
         <div className="mt-14 space-y-16 lg:mt-16 lg:space-y-24">
           {ourBrands.brands.map((brand, index) => {
-            const isLogo = brand.name === 'Wear Sierra'
+            const styles = brand.imageStyles
 
             return (
               <Reveal key={brand.name} delay={index * 0.08}>
@@ -41,20 +41,22 @@ export function OurBrandsSection() {
                       className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                     >
                       <div
-                        className={`overflow-hidden border border-border bg-surface ${
-                          isLogo ? 'flex min-h-[220px] items-center justify-center p-10 sm:min-h-[280px] sm:p-14' : ''
-                        }`}
+                        className={`overflow-hidden border border-border border-t-4 ${styles.accent} ${styles.container}`}
                       >
                         <img
                           src={brand.image}
                           alt={brand.imageAlt}
-                          className={`w-full transition-transform duration-500 ${
-                            isLogo
-                              ? 'max-h-32 object-contain sm:max-h-40'
-                              : `aspect-[16/10] object-cover ${prefersReducedMotion ? '' : 'group-hover:scale-[1.02]'}`
+                          className={`${styles.image} transition-transform duration-500 ${
+                            prefersReducedMotion ? '' : 'group-hover:scale-[1.02]'
                           }`}
+                          width={brand.imageWidth}
+                          height={brand.imageHeight}
                           loading="lazy"
                           decoding="async"
+                        />
+                        <div
+                          className={`${styles.overlay} pointer-events-none`}
+                          aria-hidden="true"
                         />
                       </div>
                     </a>

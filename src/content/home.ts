@@ -1,13 +1,16 @@
-import heroImage from '@/assets/images/hero.png'
+import heroImage from '@/assets/images/hero-main.png'
 import platformsImage from '@/assets/images/platforms.png'
 import sierraSocksImage from '@/assets/images/sierra-socks.png'
-import wearSierraImage from '@/assets/images/wear-sierra.jpg'
+import wearSierraImage from '@/assets/images/wear-sierra.png'
+import { site } from '@/content/site'
 
 export const homeMeta = {
   title: 'Devmir | Connecting Global Manufacturing with U.S. Retail & E-Commerce',
   description:
     'Devmir connects established international manufacturers and brands with the U.S. retail and e-commerce market through market access, fulfillment, infrastructure, and local expertise.',
   path: '/',
+  image: `${site.url}/og-default.jpg`,
+  imageAlt: 'Devmir: Connecting Quality Manufacturing with the U.S. Market',
 }
 
 export const homeContent = {
@@ -18,7 +21,8 @@ export const homeContent = {
     primaryCta: { label: 'For Manufacturers & Brands', href: '/u-s-market-entry/' },
     secondaryCta: { label: 'For U.S. Retailers & Partners', href: '/u-s-retailers-partners/' },
     image: heroImage,
-    imageAlt: 'Devmir connects global manufacturing with U.S. retail and e-commerce operations',
+    imageAlt:
+      'Devmir Legwear team presentation showcasing Sierra Socks and Wear Sierra brands',
   },
 
   whatWeDo: {
@@ -107,7 +111,7 @@ export const homeContent = {
         description:
           'For U.S. retailers, marketplaces, and business partners seeking reliable products, sourcing capabilities, and established operational support.',
         cta: { label: 'Explore Partnership Opportunities', href: '/u-s-retailers-partners/' },
-        variant: 'light' as const,
+        variant: 'lightGreen' as const,
       },
     ],
   },
@@ -191,18 +195,38 @@ export const homeContent = {
         description:
           'An established U.S. legwear brand offering socks for men, women, children, and a wide range of everyday, dress, work, outdoor, and specialty needs.',
         image: sierraSocksImage,
-        imageAlt: 'Sierra Socks brand: Change Your World',
+        imageAlt: 'Sierra Socks logo',
+        imageWidth: 2172,
+        imageHeight: 724,
         href: 'https://www.sierrasocks.com/',
         cta: 'Visit Sierra Socks',
+        imageStyles: {
+          container:
+            'relative flex aspect-[2/1] min-h-[200px] items-center justify-center overflow-hidden bg-gradient-to-br from-green-muted via-white to-green-light/20 sm:min-h-[240px]',
+          image:
+            'relative z-10 mx-auto h-auto max-h-32 w-full max-w-[520px] object-contain sm:max-h-36',
+          overlay: 'absolute inset-0 bg-green/5 mix-blend-multiply',
+          accent: 'border-t-green',
+        },
       },
       {
         name: 'Wear Sierra',
         description:
           'A multi-category e-commerce marketplace offering apparel, accessories, footwear, and home products while providing a platform for brands to reach U.S. consumers.',
         image: wearSierraImage,
-        imageAlt: 'Wear Sierra marketplace logo',
+        imageAlt: 'Wear Sierra logo',
+        imageWidth: 1774,
+        imageHeight: 887,
         href: 'https://www.wearsierra.com/',
         cta: 'Visit Wear Sierra',
+        imageStyles: {
+          container:
+            'relative flex aspect-[2/1] min-h-[200px] items-center justify-center overflow-hidden bg-gradient-to-br from-green-muted via-white to-green-light/20 sm:min-h-[240px]',
+          image:
+            'relative z-10 mx-auto h-auto max-h-36 w-full max-w-[580px] object-contain sm:max-h-40',
+          overlay: 'absolute inset-0 bg-green/5 mix-blend-multiply',
+          accent: 'border-t-green',
+        },
       },
     ],
   },
@@ -212,16 +236,19 @@ export const homeContent = {
     headline: 'Company updates',
     items: [
       {
+        date: 'January 2026',
         title: 'Expanding U.S. Marketplace Presence',
         description:
           'Devmir continues to expand its presence across major U.S. retail and e-commerce marketplaces, creating new opportunities for brands and manufacturing partners.',
       },
       {
+        date: 'November 2025',
         title: 'Growing Retail Partnerships',
         description:
           'Devmir continues to strengthen relationships with U.S. retailers and marketplace partners, expanding distribution opportunities for its brands and international manufacturing partners.',
       },
       {
+        date: 'September 2025',
         title: 'International Brands in the U.S.',
         description:
           'Devmir provides U.S.-based infrastructure, fulfillment, marketplace access, and local market support to help established international manufacturers and brands enter and grow in the U.S. market.',

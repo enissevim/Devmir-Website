@@ -7,12 +7,14 @@ interface PageMetaProps {
   description: string
   path: string
   image?: string
+  imageAlt?: string
 }
 
-export function PageMeta({ title, description, path, image }: PageMetaProps) {
+export function PageMeta({ title, description, path, image, imageAlt }: PageMetaProps) {
   const canonicalPath = normalizeInternalPath(path)
   const url = `${site.url}${canonicalPath === '/' ? '' : canonicalPath}`
   const ogImage = image ?? `${site.url}/og-default.jpg`
+  const ogImageAlt = imageAlt ?? 'Devmir: Connecting Quality Manufacturing with the U.S. Market'
 
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -51,7 +53,7 @@ export function PageMeta({ title, description, path, image }: PageMetaProps) {
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Devmir: Connecting Quality Manufacturing with the U.S. Market" />
+      <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content={site.shortName} />
 
       <meta name="twitter:card" content="summary_large_image" />

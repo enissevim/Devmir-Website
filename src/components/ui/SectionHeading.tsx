@@ -20,7 +20,7 @@ export function SectionHeading({
   const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left'
   const textColor = light ? 'text-white' : 'text-navy'
   const summaryColor = light ? 'text-white/75' : 'text-muted'
-  const eyebrowColor = light ? 'text-white/60' : 'text-muted'
+  const eyebrowColor = light ? 'text-white/60' : 'text-accent'
 
   return (
     <div className={`max-w-3xl ${alignClass} ${className}`}>

@@ -13,7 +13,7 @@ interface SectionProps {
 const variantClasses: Record<SectionVariant, string> = {
   white: 'bg-white',
   surface: 'bg-surface',
-  navy: 'bg-navy text-white',
+  navy: 'bg-accent text-white',
 }
 
 export function Section({

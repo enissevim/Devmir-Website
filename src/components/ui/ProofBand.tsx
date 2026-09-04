@@ -4,6 +4,8 @@ interface ProofBandProps {
   caption?: string
   className?: string
   variant?: 'default' | 'prominent'
+  imageWidth?: number
+  imageHeight?: number
 }
 
 export function ProofBand({
@@ -12,6 +14,8 @@ export function ProofBand({
   caption,
   className = '',
   variant = 'default',
+  imageWidth = 1693,
+  imageHeight = 929,
 }: ProofBandProps) {
   const isProminent = variant === 'prominent'
 
@@ -25,17 +29,15 @@ export function ProofBand({
         <img
           src={image}
           alt={alt}
+          width={imageWidth}
+          height={imageHeight}
           className={`mx-auto h-auto w-full ${isProminent ? 'max-w-5xl' : ''} object-contain`}
           loading="lazy"
           decoding="async"
         />
       </div>
       {caption && (
-        <figcaption
-          className={`mt-5 text-sm text-muted ${isProminent ? 'text-center' : 'text-center'}`}
-        >
-          {caption}
-        </figcaption>
+        <figcaption className="mt-5 text-center text-sm text-muted">{caption}</figcaption>
       )}
     </figure>
   )

@@ -19,15 +19,22 @@ export function MarketEntryPage() {
         eyebrow="U.S. Market Entry"
         headline={content.hero.headline}
         subcopy={content.hero.subcopy}
+        image={content.hero.image}
+        imageAlt={content.hero.imageAlt}
+        imageWidth={content.hero.imageWidth}
+        imageHeight={content.hero.imageHeight}
       />
 
       <Section variant="surface">
         <Container>
           <Reveal>
-            <SectionHeading eyebrow="Capabilities" headline="Core capabilities" />
+            <SectionHeading
+              eyebrow={content.whatWeProvide.eyebrow}
+              headline={content.whatWeProvide.headline}
+            />
           </Reveal>
           <div className="mt-12 grid gap-10 border-t border-border pt-12 md:grid-cols-3 md:gap-8">
-            {content.coreCapabilities.map((item, index) => (
+            {content.whatWeProvide.items.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.05}>
                 <h2 className="font-display text-xl font-semibold text-navy">{item.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-muted">{item.description}</p>
@@ -40,10 +47,14 @@ export function MarketEntryPage() {
       <Section variant="white">
         <Container>
           <Reveal>
-            <SectionHeading headline="Additional capabilities" />
+            <SectionHeading
+              eyebrow={content.howWeSupport.eyebrow}
+              headline={content.howWeSupport.headline}
+              summary={content.howWeSupport.intro}
+            />
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {content.additionalCapabilities.map((item, index) => (
+            {content.howWeSupport.items.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.05}>
                 <div className="border-t border-border pt-8">
                   <h2 className="font-display text-lg font-semibold text-navy">{item.title}</h2>
@@ -57,45 +68,75 @@ export function MarketEntryPage() {
 
       <Section variant="surface">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <SectionHeading headline={content.whoIsThisFor.headline} />
-              <ul className="mt-8 space-y-4">
-                {content.whoIsThisFor.audiences.map((audience) => (
-                  <li
-                    key={audience}
-                    className="border-l-2 border-accent pl-5 font-display text-lg font-semibold text-navy"
-                  >
-                    {audience}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
-            <Reveal delay={0.08}>
-              <SectionHeading headline={content.whyDevmir.headline} />
-              <div className="mt-8 space-y-7">
-                {content.whyDevmir.points.map((point) => (
-                  <div key={point.title} className="border-t border-border pt-6 first:border-t-0 first:pt-0">
-                    <h3 className="font-display text-base font-semibold text-navy">{point.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+          <Reveal>
+            <SectionHeading
+              eyebrow={content.whoIsThisFor.eyebrow}
+              headline={content.whoIsThisFor.headline}
+              summary={content.whoIsThisFor.intro}
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            {content.whoIsThisFor.audiences.map((audience, index) => (
+              <Reveal key={audience.title} delay={index * 0.05}>
+                <div className="border-t border-border pt-8">
+                  <h2 className="font-display text-lg font-semibold text-navy">{audience.title}</h2>
+                  <p className="mt-3 text-base leading-relaxed text-muted">{audience.description}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </Section>
 
-      <Section variant="white" className="pb-0">
+      <Section variant="white">
         <Container>
           <Reveal>
-            <SectionHeading headline={content.proof.headline} />
+            <SectionHeading
+              eyebrow={content.whyDevmir.eyebrow}
+              headline={content.whyDevmir.headline}
+              summary={content.whyDevmir.intro}
+            />
+          </Reveal>
+          <div className="mt-12 space-y-8">
+            {content.whyDevmir.points.map((point, index) => (
+              <Reveal key={point.title} delay={index * 0.05}>
+                <div
+                  className={`border-t border-border pt-8 ${
+                    'featured' in point && point.featured
+                      ? 'bg-surface -mx-5 px-5 sm:-mx-8 sm:px-8 md:mx-0 md:px-8 md:py-8'
+                      : ''
+                  }`}
+                >
+                  <h2 className="font-display text-lg font-semibold text-navy">{point.title}</h2>
+                  <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted">{point.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section variant="surface" className="pb-0">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow={content.proof.eyebrow}
+              headline={content.proof.headline}
+              summary={content.proof.summary}
+            />
           </Reveal>
         </Container>
-        <Reveal className="mt-12 border-y border-border bg-surface py-8 sm:py-12">
+        <Reveal className="mt-12 border-y border-border bg-white py-8 sm:py-12">
           <Container>
-            <ProofBand image={content.proof.image} alt={content.proof.imageAlt} variant="prominent" />
+            <ProofBand
+              image={content.proof.image}
+              alt={content.proof.imageAlt}
+              caption={content.proof.caption}
+              variant="prominent"
+            />
+            <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted">
+              {content.proof.disclaimer}
+            </p>
           </Container>
         </Reveal>
       </Section>

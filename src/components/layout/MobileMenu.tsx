@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import { site } from '@/content/site'
 import { Button } from '@/components/ui/Button'
 import { normalizeInternalPath, pathsMatch } from '@/lib/paths'
+import { SiteLogo } from './SiteLogo'
 
 interface MobileMenuProps {
   open: boolean
   onClose: () => void
   pathname: string
+  hash?: string
 }
 
-export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
+export function MobileMenu({ open, onClose, pathname, hash = '' }: MobileMenuProps) {
   const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -52,7 +54,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
         className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-white shadow-2xl"
       >
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
-          <span className="font-display text-lg font-bold text-navy">{site.shortName}</span>
+          <SiteLogo linked={false} />
           <button
             type="button"
             onClick={onClose}
@@ -70,12 +72,17 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
             const isHash = item.href.startsWith('/#')
 
             if (isHash) {
+              const active = item.href === '/#our-brands' && pathname === '/' && hash === '#our-brands'
+
               return (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="rounded-sm px-2 py-4 font-display text-2xl font-semibold text-navy transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className={`rounded-sm px-2 py-4 font-display text-2xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                    active ? 'text-accent' : 'text-navy hover:text-accent'
+                  }`}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {item.label}
                 </a>

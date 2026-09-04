@@ -25,7 +25,6 @@ export const site = {
     { label: 'Retailers & Partners', href: '/u-s-retailers-partners/' },
     { label: 'About', href: '/about/' },
     { label: 'Brands', href: '/#our-brands' },
-    { label: 'Contact', href: '/contact/' },
   ],
 
   footer: {

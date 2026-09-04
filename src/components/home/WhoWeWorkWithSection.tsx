@@ -19,45 +19,32 @@ export function WhoWeWorkWithSection() {
         </Reveal>
       </div>
 
-      <div className="mt-16 grid lg:grid-cols-2">
-        {whoWeWorkWith.audiences.map((audience, index) => (
-          <Reveal key={audience.title} delay={index * 0.1}>
+      <Reveal className="mt-16 bg-accent">
+        <div className="grid lg:grid-cols-2">
+          {whoWeWorkWith.audiences.map((audience, index) => (
             <div
-              className={`flex min-h-[340px] flex-col justify-between px-5 py-12 sm:px-8 lg:min-h-[420px] lg:px-16 lg:py-16 xl:px-20 ${
-                audience.variant === 'dark'
-                  ? 'bg-navy text-white'
-                  : 'border-t border-border bg-white lg:border-l lg:border-t-0'
+              key={audience.title}
+              className={`flex min-h-[340px] flex-col justify-between px-5 py-12 text-white sm:px-8 lg:min-h-[420px] lg:px-16 lg:py-16 xl:px-20 ${
+                index > 0 ? 'border-t border-white/20 lg:border-t-0 lg:border-l' : ''
               }`}
             >
               <div>
-                <h3
-                  className={`font-display text-[clamp(1.5rem,2.5vw,2rem)] font-semibold leading-tight tracking-[-0.02em] ${
-                    audience.variant === 'dark' ? 'text-white' : 'text-navy'
-                  }`}
-                >
+                <h3 className="font-display text-[clamp(1.5rem,2.5vw,2rem)] font-semibold leading-tight tracking-[-0.02em] text-white">
                   {audience.title}
                 </h3>
-                <p
-                  className={`mt-5 max-w-md text-base leading-relaxed ${
-                    audience.variant === 'dark' ? 'text-white/75' : 'text-muted'
-                  }`}
-                >
+                <p className="mt-5 max-w-md text-base leading-relaxed text-white/75">
                   {audience.description}
                 </p>
               </div>
               <div className="mt-10">
-                <Button
-                  as="a"
-                  href={audience.cta.href}
-                  variant={audience.variant === 'dark' ? 'outline-light' : 'primary'}
-                >
+                <Button as="a" href={audience.cta.href} variant="primary-outline">
                   {audience.cta.label}
                 </Button>
               </div>
             </div>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
     </Section>
   )
 }

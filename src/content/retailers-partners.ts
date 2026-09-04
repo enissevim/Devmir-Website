@@ -1,80 +1,97 @@
 import platformsImage from '@/assets/images/platforms.png'
+import retailersHeroImage from '@/assets/images/retailers-hero.png'
+import { site } from '@/content/site'
 
 export const retailersMeta = {
   title: 'U.S. Retailers & Partners | Devmir Legwear Inc.',
   description:
-    'Devmir provides U.S. retailers, wholesalers, and marketplace partners with reliable product sourcing, development support, fulfillment, and established operational infrastructure.',
+    'Devmir works with U.S. retailers, e-commerce marketplaces, wholesalers, and private-label customers seeking reliable products, sourcing capabilities, and dependable operational support.',
   path: '/u-s-retailers-partners/',
+  image: `${site.url}/og-retailers.jpg`,
+  imageAlt: 'U.S. retailer and partner supply support from Devmir',
 }
 
 export const retailersContent = {
   hero: {
     headline: 'Reliable Products. Established Supply. U.S.-Based Support.',
     subcopy:
-      'Devmir works with U.S. retailers, marketplaces, and business partners to provide reliable product sourcing, development capabilities, and established fulfillment and operational support.',
+      'Devmir works with U.S. retailers, e-commerce marketplaces, wholesalers, and private-label customers seeking reliable products, experienced sourcing capabilities, and dependable operational support.',
+    image: retailersHeroImage,
+    imageAlt:
+      'Devmir sourcing, supply, and U.S.-based support for retailers and partners',
+    imageWidth: 712,
+    imageHeight: 650,
   },
 
-  coreAreas: [
-    {
-      title: 'Product Sourcing & Development',
-      description:
-        'Access to established international manufacturing relationships and product development capabilities for the U.S. market.',
-    },
-    {
-      title: 'Retail & E-Commerce Support',
-      description:
-        'Support for retail, e-commerce, and marketplace operations backed by more than two decades of U.S. market experience.',
-    },
-    {
-      title: 'U.S.-Based Fulfillment & Operations',
-      description:
-        'Established U.S. warehousing, order fulfillment, shipping, customer service, and day-to-day operational infrastructure.',
-    },
-  ],
-
-  whyDevmir: {
-    headline: 'Why Work With Devmir?',
-    points: [
+  support: {
+    eyebrow: 'How Devmir Supports U.S. Retailers & Partners',
+    headline: 'Sourcing, retail support, and U.S.-based operations',
+    items: [
       {
-        title: 'Reliable Sourcing Network',
+        title: 'Product Sourcing & Development',
         description:
-          'Long-standing relationships with international manufacturers and established product sourcing capabilities.',
+          'Access established international manufacturing capabilities across apparel, textiles, accessories, and other consumer product categories, including private-label programs.',
       },
       {
-        title: 'Hands-On U.S. Market Experience',
+        title: 'Retail & E-Commerce Support',
         description:
-          'More than two decades of practical experience across U.S. retail, wholesale, and e-commerce channels.',
+          'Experienced support for retail and marketplace programs, including product setup, inventory planning, fulfillment, shipping, and ongoing operational coordination.',
       },
       {
-        title: 'From Product to Fulfillment',
+        title: 'U.S.-Based Fulfillment & Operations',
         description:
-          'Integrated support from product development and sourcing through warehousing, fulfillment, and customer service.',
-      },
-      {
-        title: 'Flexible Partnership Approach',
-        description:
-          'Partnership structures tailored to the needs of retailers, wholesalers, marketplaces, and private-label customers.',
-      },
-      {
-        title: 'Active in the U.S. Market',
-        description:
-          'An operating company with established presence across major U.S. retail and e-commerce channels.',
+          'U.S.-based warehousing, order fulfillment, shipping, customer service, and operational support to help keep programs running efficiently.',
       },
     ],
   },
 
-  marketplace: {
-    headline: 'Active across major U.S. retail and e-commerce channels',
+  whyDevmir: {
+    eyebrow: 'Why Work With Devmir?',
+    headline: 'Sourcing relationships backed by U.S. market experience',
+    intro:
+      'Devmir combines established international sourcing relationships with more than two decades of hands-on U.S. retail, wholesale, and e-commerce experience. Devmir understands both sides of the supply relationship: the capabilities of manufacturers and the requirements of U.S. customers.',
+    points: [
+      {
+        title: 'Reliable Sourcing Network',
+        description:
+          'Access established manufacturing relationships and sourcing capabilities designed to support quality, consistency, competitive pricing, and dependable supply.',
+      },
+      {
+        title: 'Hands-On U.S. Market Experience',
+        description:
+          'Work with a partner that actively operates across U.S. retail, e-commerce, wholesale, and private-label channels and understands their day-to-day requirements.',
+      },
+      {
+        title: 'From Product to Fulfillment',
+        description:
+          'Coordinate sourcing, product development, inventory, warehousing, fulfillment, shipping, and operational support through one experienced U.S.-based partner.',
+      },
+      {
+        title: 'Flexible Partnership Approach',
+        description:
+          'Whether your business needs product sourcing, private-label development, fulfillment support, or a broader supply solution, Devmir can structure support around your business needs.',
+      },
+    ],
+  },
+
+  activeInMarket: {
+    eyebrow: 'Active in the U.S. Market',
+    headline: 'An operating company with current U.S. market experience',
+    intro:
+      'Devmir is an active U.S. wholesale, retail, and e-commerce operator with current experience across major national retailers, leading online marketplaces, wholesale customers, and private-label programs.',
     retailers: "KOHL'S | TARGET | JCPENNEY | AMAZON | WALMART | + MORE",
+    summary:
+      'This active market presence gives Devmir practical knowledge of retailer requirements, marketplace operations, inventory management, fulfillment, shipping, customer service, and ongoing program support.',
     image: platformsImage,
     imageAlt:
       'Devmir retail and marketplace presence including Kohls, Target, JCPenney, Amazon, Walmart, and more',
+    caption: 'Active across major U.S. retail and e-commerce channels',
   },
 
   cta: {
     headline: 'Looking for a reliable supply and operations partner?',
     subcopy:
-      'Connect with Devmir to discuss product sourcing, partnership opportunities, and how we can support your business.',
+      'Whether your company is looking for reliable products, private-label opportunities, sourcing support, or a broader supply partnership, Devmir can discuss how it can support your business.',
     button: { label: 'Start a Conversation', href: '/contact/' },
   },
 } as const

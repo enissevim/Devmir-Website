@@ -1,7 +1,6 @@
 import { homeContent } from '@/content/home'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
-import { Rule } from '@/components/ui/Rule'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
@@ -19,16 +18,16 @@ export function NewsSection() {
           />
         </Reveal>
 
-        <div className="mt-12">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {news.items.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.08}>
-              <div className="py-8">
-                {index > 0 && <Rule className="mb-8" />}
-                <h3 className="font-display text-xl font-semibold text-navy">{item.title}</h3>
-                <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted">
-                  {item.description}
+              <article className="flex h-full flex-col border border-border bg-white p-8 transition-colors duration-200 hover:border-accent/30">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                  {item.date}
                 </p>
-              </div>
+                <h3 className="mt-4 font-display text-xl font-semibold text-navy">{item.title}</h3>
+                <p className="mt-3 flex-1 text-base leading-relaxed text-muted">{item.description}</p>
+              </article>
             </Reveal>
           ))}
         </div>

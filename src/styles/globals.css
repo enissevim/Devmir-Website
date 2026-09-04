@@ -5,13 +5,17 @@
   --font-body: 'Inter', system-ui, sans-serif;
 
   --color-white: #ffffff;
-  --color-surface: #f7f8fa;
+  --color-green: #00441b;
+  --color-green-hover: #003616;
+  --color-green-light: #a1d99b;
+  --color-green-muted: #eef5ec;
+  --color-surface: #f4f7f4;
   --color-navy: #0b1424;
   --color-charcoal: #1b2330;
   --color-muted: #5a6578;
   --color-border: #e2e5ea;
-  --color-accent: #1a56a0;
-  --color-accent-hover: #144785;
+  --color-accent: #00441b;
+  --color-accent-hover: #003616;
 }
 
 @layer base {
@@ -41,7 +45,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-accent) 18%, white);
+    background-color: color-mix(in srgb, var(--color-green-light) 45%, white);
   }
 }
 

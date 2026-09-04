@@ -20,12 +20,7 @@ export function FinalCTASection() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/75">{finalCta.subcopy}</p>
             <div className="mt-10">
-              <Button
-                as="a"
-                href={finalCta.cta.href}
-                variant="secondary"
-                className="border-white/20 bg-white text-navy hover:border-white hover:bg-white/90"
-              >
+              <Button as="a" href={finalCta.cta.href} variant="primary-outline">
                 {finalCta.cta.label}
               </Button>
             </div>

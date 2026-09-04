@@ -10,6 +10,11 @@ import { submitNetlifyForm } from '@/lib/netlifyForm'
 import { site } from '@/content/site'
 import { contactContent, contactMeta } from '@/content/contact'
 
+const audiencePanelStyles = {
+  dark: 'bg-accent text-white',
+  lightGreen: 'bg-green-light text-white',
+} as const
+
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -77,31 +82,39 @@ export function ContactPage() {
         subcopy={content.hero.subcopy}
       />
 
+      <Section variant="white" className="pb-0">
+        <div className="grid lg:grid-cols-2">
+          {content.audiences.map((audience, index) => {
+            const isColoredPanel = audience.variant === 'dark' || audience.variant === 'lightGreen'
+
+            return (
+            <Reveal key={audience.title} delay={index * 0.08}>
+              <div
+                className={`flex min-h-[240px] flex-col justify-center px-5 py-12 sm:px-8 lg:min-h-[280px] lg:px-16 lg:py-16 xl:px-20 ${audiencePanelStyles[audience.variant]}`}
+              >
+                <h2
+                  className={`font-display text-[clamp(1.375rem,2.5vw,1.75rem)] font-semibold leading-tight ${
+                    isColoredPanel ? 'text-white' : 'text-navy'
+                  }`}
+                >
+                  {audience.title}
+                </h2>
+                <p
+                  className={`mt-4 max-w-md text-base leading-relaxed ${
+                    isColoredPanel ? 'text-white/75' : 'text-charcoal/80'
+                  }`}
+                >
+                  {audience.description}
+                </p>
+              </div>
+            </Reveal>
+            )
+          })}
+        </div>
+      </Section>
+
       <Section variant="surface">
         <Container>
-          <div className="mb-12 grid gap-6 md:grid-cols-2">
-            <Reveal>
-              <div className="border-t border-border pt-6">
-                <h2 className="font-display text-lg font-semibold text-navy">
-                  International manufacturers and brands
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Discuss U.S. market entry, marketplace access, fulfillment, and operational support.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <div className="border-t border-border pt-6">
-                <h2 className="font-display text-lg font-semibold text-navy">
-                  U.S. retailers and partners
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  Discuss product sourcing, supply relationships, and partnership opportunities.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
               <h2 className="font-display text-xl font-semibold text-navy">{contact.company}</h2>
@@ -277,6 +290,29 @@ export function ContactPage() {
               )}
             </Reveal>
           </div>
+        </Container>
+      </Section>
+
+      <Section variant="navy">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-semibold text-white">
+                {content.cta.headline}
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-white/75">{content.cta.subcopy}</p>
+              <div className="mt-10">
+                <Button
+                  as="a"
+                  href={content.cta.button.href}
+                  variant="secondary"
+                  className="border-white/20 bg-white text-navy hover:border-white hover:bg-white/90"
+                >
+                  {content.cta.button.label}
+                </Button>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </Section>
     </>

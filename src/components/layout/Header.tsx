@@ -6,9 +6,10 @@ import { Container } from '@/components/ui/Container'
 import { pathsMatch, normalizeInternalPath } from '@/lib/paths'
 import { useScrolled } from '@/hooks/usePrefersReducedMotion'
 import { MobileMenu } from './MobileMenu'
+import { SiteLogo } from './SiteLogo'
 
-function isActive(href: string, pathname: string): boolean {
-  if (href === '/#our-brands') return false
+function isActive(href: string, pathname: string, hash: string): boolean {
+  if (href === '/#our-brands') return pathname === '/' && hash === '#our-brands'
   return pathsMatch(href, pathname)
 }
 
@@ -61,6 +62,7 @@ export function Header() {
   const location = useLocation()
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const pathname = location.pathname
+  const hash = location.hash
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -91,12 +93,7 @@ export function Header() {
         }`}
       >
         <Container as="div" className="flex h-[72px] items-center justify-between gap-4 xl:gap-8">
-          <Link
-            to="/"
-            className="font-display text-[1.125rem] font-bold tracking-[-0.02em] text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:text-xl"
-          >
-            {site.shortName}
-          </Link>
+          <SiteLogo />
 
           <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Main navigation">
             {site.nav.map((item) => (
@@ -104,7 +101,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 label={item.label}
-                active={isActive(item.href, pathname)}
+                active={isActive(item.href, pathname, hash)}
               />
             ))}
           </nav>
@@ -146,10 +143,11 @@ export function Header() {
       </header>
 
       <MobileMenu
-        key={pathname}
+        key={`${pathname}${hash}`}
         open={menuOpen}
         onClose={closeMenu}
         pathname={pathname}
+        hash={hash}
       />
     </>
   )

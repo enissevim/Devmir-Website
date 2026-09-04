@@ -37,7 +37,7 @@ export function HeroSection() {
                 <Button as="a" href={hero.primaryCta.href} variant="primary" className="sm:min-w-[220px]">
                   {hero.primaryCta.label}
                 </Button>
-                <Button as="a" href={hero.secondaryCta.href} variant="secondary" className="sm:min-w-[220px]">
+                <Button as="a" href={hero.secondaryCta.href} variant="primary-outline" className="sm:min-w-[220px]">
                   {hero.secondaryCta.label}
                 </Button>
               </div>
@@ -48,7 +48,7 @@ export function HeroSection() {
         <div className="relative lg:col-span-7 lg:min-h-[calc(100vh-72px)]">
           <RevealOnLoad delay={0.1} className="relative h-full">
             <div
-              className="absolute inset-y-10 left-0 hidden w-px bg-border lg:block"
+              className="absolute inset-y-10 left-0 hidden w-px bg-accent/20 lg:block"
               aria-hidden="true"
             />
             <div className="relative h-full px-5 pb-14 sm:px-8 lg:absolute lg:inset-0 lg:px-0 lg:pb-0 lg:pl-8 lg:pt-10">
@@ -65,7 +65,9 @@ export function HeroSection() {
                 <motion.img
                   src={hero.image}
                   alt={hero.imageAlt}
-                  className="h-full w-full object-cover object-[center_35%]"
+                    className="h-full w-full object-contain object-center"
+                    width={617}
+                    height={602}
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"

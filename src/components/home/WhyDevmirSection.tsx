@@ -24,27 +24,25 @@ export function WhyDevmirSection() {
       </Container>
 
       <Reveal className="mt-14 bg-surface">
-        <Container className="py-4">
+        <Container className="py-12 sm:py-16">
           <StatBlock
             value={whyDevmir.stat.value}
             label={whyDevmir.stat.label}
             prominent
           />
+
+          <div className="mt-14 grid gap-10 border-t border-green/10 pt-14 md:grid-cols-3 md:gap-8 lg:mt-16">
+            {whyDevmir.proofPoints.map((point, index) => (
+              <Reveal key={point.title} delay={index * 0.06}>
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-navy">{point.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted">{point.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </Reveal>
-
-      <Container>
-        <div className="mt-16 grid gap-10 pb-4 md:grid-cols-3 md:gap-8 lg:mt-20">
-          {whyDevmir.proofPoints.map((point, index) => (
-            <Reveal key={point.title} delay={index * 0.06}>
-              <div className="border-t border-border pt-8 md:border-t-0 md:pt-0">
-                <h3 className="font-display text-lg font-semibold text-navy">{point.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted">{point.description}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
     </Section>
   )
 }

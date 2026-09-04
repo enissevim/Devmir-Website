@@ -1,8 +1,12 @@
+import { site } from '@/content/site'
+
 export const aboutMeta = {
   title: 'About Devmir | Established U.S. Market Infrastructure Since 2002',
   description:
     'Founded in 2002, Devmir Legwear Inc. has grown from legwear into a U.S.-based retail, e-commerce, sourcing, and fulfillment organization connecting global manufacturing with the U.S. market.',
   path: '/about/',
+  image: `${site.url}/og-about.jpg`,
+  imageAlt: 'About Devmir Legwear Inc., established U.S. market infrastructure since 2002',
 }
 
 export const aboutContent = {
@@ -44,31 +48,31 @@ export const aboutContent = {
   ],
 
   timeline: {
-    headline: 'Our Journey',
+    headline: 'Company Milestones',
     milestones: [
       {
         period: '2002',
-        title: 'Devmir Founded',
+        title: 'Founded in North Carolina',
         description:
-          'Devmir Legwear Inc. was established in North Carolina, beginning with a focus on legwear and the U.S. wholesale market.',
+          'Devmir Legwear Inc. was established in Pittsboro, North Carolina with a focus on legwear and the U.S. wholesale market.',
       },
       {
-        period: 'Growth',
-        title: 'Growth in U.S. Retail & Wholesale',
+        period: '2000s',
+        title: 'Retail and Wholesale Expansion',
         description:
-          'Expanded relationships with U.S. retailers and wholesale customers while broadening product sourcing and private-label capabilities.',
+          'Built long-term relationships with U.S. retailers and wholesale customers while expanding sourcing and private-label capabilities.',
       },
       {
-        period: 'Expansion',
-        title: 'Expansion into E-Commerce & Marketplaces',
+        period: '2010s',
+        title: 'E-Commerce and Marketplace Growth',
         description:
-          'Expanded into e-commerce and major U.S. marketplaces, combining established retail experience with digital sales and fulfillment capabilities.',
+          'Expanded into digital commerce and major U.S. marketplaces, adding fulfillment infrastructure to support omnichannel growth.',
       },
       {
         period: 'Today',
-        title: 'Connecting Global Brands with the U.S. Market',
+        title: 'A Full U.S. Market Platform',
         description:
-          'Today, Devmir combines international manufacturing relationships with established U.S. operations, marketplace access, fulfillment, and market knowledge to help manufacturers and brands grow in the United States.',
+          'Combines international manufacturing relationships with warehousing, fulfillment, marketplace access, and owned brands including Sierra Socks and Wear Sierra.',
       },
     ],
   },

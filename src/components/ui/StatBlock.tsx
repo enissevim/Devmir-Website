@@ -15,7 +15,7 @@ export function StatBlock({
 }: StatBlockProps) {
   return (
     <div
-      className={`text-center ${prominent ? 'border-y border-border py-12 sm:py-16' : ''} ${className}`}
+      className={`text-center ${prominent ? 'border-y border-green/10 py-12 sm:py-16' : ''} ${className}`}
     >
       <p
         className={`font-display font-bold leading-none tracking-[-0.04em] tabular-nums ${
