@@ -13,9 +13,9 @@ export const marketEntryMeta = {
 
 export const marketEntryContent = {
   hero: {
-    headline: 'Helping International Manufacturers & Brands Enter the U.S. Market',
+    headline: 'We Have Done This Ourselves.',
     subcopy:
-      'Devmir provides established international manufacturers and brands with the market access, infrastructure, fulfillment, and operational support needed to establish and grow their business in the United States.',
+      'Before we help others enter the U.S. market, we built brands, sold through retail and marketplaces, and learned what it takes day to day. Devmir provides established international manufacturers and brands with market access, fulfillment, and operational support grounded in that experience.',
     image: marketEntryHeroImage,
     imageAlt:
       'U.S. market entry from global manufacturing and logistics to U.S. retail and e-commerce',
@@ -25,7 +25,7 @@ export const marketEntryContent = {
 
   whatWeProvide: {
     eyebrow: 'What We Provide',
-    headline: 'Strategy, access, and operations for the U.S. market',
+    headline: 'Experience-backed support for the U.S. market',
     items: [
       {
         title: 'U.S. Market Strategy',
@@ -107,7 +107,7 @@ export const marketEntryContent = {
       {
         title: 'Active U.S. Retail & E-Commerce Presence',
         description:
-          'Devmir is not simply advising companies on how to enter the U.S. market. Devmir actively sells through and manages multiple U.S. retail and e-commerce channels, with practical, day-to-day experience in marketplace requirements, retail operations, fulfillment, inventory management, customer service, and compliance. The current U.S. sales network includes major national retailers, leading e-commerce marketplaces, wholesale customers, and private-label programs.',
+          'We are not simply advising companies on how to enter the U.S. market. We actively sell through and manage multiple U.S. retail and e-commerce channels, with practical, day-to-day experience in marketplace requirements, retail operations, fulfillment, inventory management, customer service, and compliance. Our current U.S. sales network includes major national retailers, leading e-commerce marketplaces, wholesale customers, and private-label programs.',
         featured: true,
       },
       {
@@ -147,9 +147,9 @@ export const marketEntryContent = {
   },
 
   cta: {
-    headline: 'Planning your U.S. market entry or expansion?',
+    headline: "Let's talk about your U.S. market plans.",
     subcopy:
-      'Whether your company is planning its first entry into the United States or looking to expand an existing U.S. presence, Devmir can help evaluate the opportunity and develop a practical path forward.',
-    button: { label: 'Start a Conversation', href: '/contact/' },
+      'Whether your company is planning its first entry into the United States or looking to expand an existing U.S. presence, we would welcome a conversation about what is possible.',
+    button: { label: 'Contact Devmir', href: '/contact/' },
   },
 } as const

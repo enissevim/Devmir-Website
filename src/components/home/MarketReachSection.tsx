@@ -9,7 +9,7 @@ export function MarketReachSection() {
   const { marketReach } = homeContent
 
   return (
-    <Section variant="surface" ariaLabelledby="market-reach-heading">
+    <Section variant="surface" ariaLabelledby="market-reach-heading" className="pt-16 pb-0 lg:pt-28 lg:pb-0">
       <Container>
         <Reveal>
           <SectionHeading
@@ -17,33 +17,43 @@ export function MarketReachSection() {
             eyebrow={marketReach.eyebrow}
             headline={marketReach.headline}
             summary={marketReach.summary}
+            tone="story"
+            className="max-w-none"
           />
         </Reveal>
       </Container>
 
       <Reveal className="mt-14 lg:mt-16">
-        <div className="border-y border-border bg-white py-8 sm:py-12">
+        <div className="border-y border-border bg-white py-10 sm:py-14">
           <Container>
-            <ProofBand
-              image={marketReach.image}
-              alt={marketReach.imageAlt}
-              caption="Active across major U.S. retail and e-commerce channels"
-              variant="prominent"
+            <SectionHeading
+              eyebrow={marketReach.brandsPartners.eyebrow}
+              headline={marketReach.brandsPartners.headline}
+              tone="story"
+              className="max-w-none"
             />
+            <div className="mt-8 lg:mt-10">
+              <ProofBand
+                image={marketReach.brandsPartners.image}
+                alt={marketReach.brandsPartners.imageAlt}
+                variant="prominent"
+                imageWidth={marketReach.brandsPartners.imageWidth}
+                imageHeight={marketReach.brandsPartners.imageHeight}
+              />
+            </div>
+            <div className="mt-10 sm:mt-14">
+              <ProofBand
+                image={marketReach.platforms.image}
+                alt={marketReach.platforms.imageAlt}
+                variant="prominent"
+                imageWidth={marketReach.platforms.imageWidth}
+                imageHeight={marketReach.platforms.imageHeight}
+              />
+            </div>
           </Container>
         </div>
       </Reveal>
 
-      <Container>
-        <div className="mt-14 grid gap-10 border-t border-border pt-14 md:grid-cols-3 md:gap-8 lg:mt-16 lg:pt-16">
-          {marketReach.areas.map((area, index) => (
-            <Reveal key={area.title} delay={index * 0.05}>
-              <h3 className="font-display text-lg font-semibold text-navy">{area.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-muted">{area.description}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
     </Section>
   )
 }

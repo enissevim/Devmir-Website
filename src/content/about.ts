@@ -11,38 +11,38 @@ export const aboutMeta = {
 
 export const aboutContent = {
   hero: {
-    headline: 'Built over two decades. Evolving with the market.',
+    headline: 'It started with legwear in North Carolina.',
     subcopy:
-      'From its founding in North Carolina in 2002, Devmir has grown into a U.S.-based organization connecting international manufacturing with retail, e-commerce, and marketplace opportunities across the United States.',
+      'We started in Pittsboro in 2002 with socks and wholesale. More than two decades later, we make products overseas, run our own brands, and sell across U.S. retail and online.',
   },
 
   sections: [
     {
-      title: 'Founded in legwear. Built for the U.S. market.',
+      title: 'Founded in legwear. Built through experience.',
       paragraphs: [
-        'Devmir Legwear Inc. was established in 2002 in North Carolina, beginning with a focus on legwear and the U.S. wholesale market. Over more than two decades, the company expanded its relationships with U.S. retailers and wholesale customers while broadening product sourcing and private-label capabilities.',
-        'What began as a legwear business evolved into a broader retail, e-commerce, sourcing, and fulfillment organization with established infrastructure and deep knowledge of the U.S. market.',
+        'We started in 2002 in Pittsboro with legwear and wholesale buyers who cared about quality. Over the years we grew into manufacturing, our own brands, retail, e-commerce, and U.S. fulfillment.',
+        'We did not learn the market from the outside. We learned it by doing the work, one product and one order at a time.',
       ],
     },
     {
-      title: 'International manufacturing. U.S. operations.',
+      title: 'Making products. Selling them in the U.S.',
       paragraphs: [
-        'Devmir has developed long-standing relationships with international manufacturers, supporting product sourcing, development, wholesale, and private-label programs for the U.S. market. These manufacturing connections are supported by established U.S.-based operations including warehousing, fulfillment, shipping, and customer service.',
-        'This combination of global sourcing relationships and domestic operational infrastructure allows Devmir to serve both international brands entering the U.S. market and U.S. retailers and partners seeking reliable supply and support.',
+        'We have built long-standing relationships with international manufacturers, supporting product sourcing, development, wholesale, and private-label programs. We know the production side because we have lived it.',
+        'On the selling side, we operate Sierra Socks and Wear Sierra, run U.S. warehousing and fulfillment, and work across major retail and e-commerce channels. That hands-on experience is what we bring to every partnership.',
       ],
     },
     {
       title: 'Retail, e-commerce, and marketplace experience.',
       paragraphs: [
-        'Over its history, Devmir expanded into e-commerce and major U.S. marketplaces, combining established retail and wholesale experience with digital sales and fulfillment capabilities. The company operates across major U.S. retail and e-commerce channels, creating distribution opportunities for its own brands and manufacturing partners.',
-        'Devmir also operates and supports established consumer-facing brands, including Sierra Socks and Wear Sierra, serving U.S. customers directly through retail and e-commerce channels.',
+        'We expanded into e-commerce and major U.S. marketplaces, combining retail and wholesale experience with the fulfillment work that makes online sales actually work.',
+        'We run Sierra Socks and Wear Sierra ourselves, serving U.S. customers directly through retail and online. That hands-on work shapes how we partner with others.',
       ],
     },
     {
-      title: 'Connecting global manufacturing with the U.S. market.',
+      title: 'Built over time.',
       paragraphs: [
-        'Today, Devmir combines international manufacturing relationships with established U.S. operations, marketplace access, fulfillment, and market knowledge to help manufacturers and brands grow in the United States.',
-        'Whether supporting an international manufacturer entering the U.S. market or a U.S. retailer seeking reliable product and supply solutions, Devmir provides the infrastructure, relationships, and practical market knowledge needed to build and sustain growth.',
+        'Today we combine overseas manufacturing with U.S. operations, marketplace access, fulfillment, and the market knowledge that comes from more than 20 years in the work.',
+        'Whether you make products, sell them, or do both, we welcome a conversation. Knowing both sides of the product is what makes us different.',
       ],
     },
   ],
@@ -54,7 +54,7 @@ export const aboutContent = {
         period: '2002',
         title: 'Founded in North Carolina',
         description:
-          'Devmir Legwear Inc. was established in Pittsboro, North Carolina with a focus on legwear and the U.S. wholesale market.',
+          'We started in Pittsboro, North Carolina with legwear and the U.S. wholesale market.',
       },
       {
         period: '2000s',
@@ -78,9 +78,9 @@ export const aboutContent = {
   },
 
   cta: {
-    headline: 'Ready to work together?',
+    headline: 'Want to talk?',
     subcopy:
-      'Whether you are exploring the U.S. market or seeking a reliable supply and operations partner, we would be pleased to hear from you.',
-    button: { label: 'Start a Conversation', href: '/contact/' },
+      'Whether you are exploring the U.S. market or looking for a partner who has done this work firsthand, we would like to hear from you.',
+    button: { label: 'Get in touch', href: '/contact/' },
   },
 } as const

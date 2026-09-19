@@ -11,14 +11,13 @@ export function FinalCTASection() {
     <Section variant="navy" ariaLabelledby="final-cta-heading">
       <Container>
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="text-center">
             <h2
               id="final-cta-heading"
-              className="font-display text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-[-0.02em] text-white"
+              className="whitespace-pre-line font-display text-[clamp(1.375rem,2.25vw,1.75rem)] font-semibold leading-tight tracking-[-0.02em] text-white"
             >
-              {finalCta.headline}
+              {finalCta.subcopy}
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/75">{finalCta.subcopy}</p>
             <div className="mt-10">
               <Button as="a" href={finalCta.cta.href} variant="primary-outline">
                 {finalCta.cta.label}

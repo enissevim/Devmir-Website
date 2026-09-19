@@ -3,6 +3,7 @@
 @theme {
   --font-display: 'Manrope', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  --font-story: 'Cormorant Garamond', Georgia, serif;
 
   --color-white: #ffffff;
   --color-green: #00441b;
@@ -10,6 +11,8 @@
   --color-green-light: #a1d99b;
   --color-green-muted: #eef5ec;
   --color-surface: #f4f7f4;
+  --color-ivory: #eef5ec;
+  --color-off-white: #eef5ec;
   --color-navy: #0b1424;
   --color-charcoal: #1b2330;
   --color-muted: #5a6578;

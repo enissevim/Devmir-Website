@@ -11,21 +11,21 @@ export const contactMeta = {
 
 export const contactContent = {
   hero: {
-    headline: "Let's Start a Conversation",
+    headline: 'Want to talk?',
     subcopy:
-      'Whether you are an international manufacturer or brand exploring the U.S. market, or a retailer seeking reliable product and supply solutions, we would be pleased to hear from you.',
+      'Tell us a little about yourself and what you are working on. We will get back to you.',
   },
 
   audiences: [
     {
       title: 'International manufacturers and brands',
       description:
-        'Discuss U.S. market entry, marketplace access, fulfillment, and operational support for established manufacturers and brands entering the United States.',
+        'Tell us about your products and your U.S. plans. We can talk through marketplace access, fulfillment, and what it actually takes to sell here.',
     },
     {
       title: 'U.S. retailers and partners',
       description:
-        'Discuss product sourcing, supply relationships, private-label programs, and partnership opportunities with an established U.S. operator.',
+        'Tell us about your sourcing needs or partnership ideas. We bring more than 20 years of selling in U.S. retail and online.',
     },
   ],
 
@@ -41,13 +41,13 @@ export const contactContent = {
     submitLabel: 'Send Message',
     emailCta: 'Email Devmir',
     successMessage:
-      'Thank you for reaching out. We will review your message and respond as soon as possible.',
+      'Thanks for reaching out. We will read your message and get back to you soon.',
   },
 
   cta: {
-    headline: 'Prefer to reach out directly?',
+    headline: 'Prefer email?',
     subcopy:
-      'Our team in Pittsboro, North Carolina is available by phone or email for U.S. market entry, retail partnerships, and supply discussions.',
-    button: { label: 'Email Devmir', href: 'mailto:veli@devmir.com' },
+      'Our team in Pittsboro, North Carolina is here by phone or email if you would rather reach out directly.',
+    button: { label: 'Email us', href: 'mailto:veli@devmir.com' },
   },
 } as const

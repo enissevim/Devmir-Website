@@ -1,15 +1,12 @@
 import { PageMeta } from '@/components/seo/PageMeta'
+import { BothSidesSection } from '@/components/home/BothSidesSection'
 import { FinalCTASection } from '@/components/home/FinalCTASection'
 import { HeroSection } from '@/components/home/HeroSection'
-import { HowWeWorkSection } from '@/components/home/HowWeWorkSection'
 import { MarketReachSection } from '@/components/home/MarketReachSection'
 import { NewsSection } from '@/components/home/NewsSection'
 import { OurBrandsSection } from '@/components/home/OurBrandsSection'
-import { OurJourneySection } from '@/components/home/OurJourneySection'
-import { OurStorySection } from '@/components/home/OurStorySection'
-import { WhatWeDoSection } from '@/components/home/WhatWeDoSection'
-import { WhoWeWorkWithSection } from '@/components/home/WhoWeWorkWithSection'
-import { WhyDevmirSection } from '@/components/home/WhyDevmirSection'
+import { RelationshipsSection } from '@/components/home/RelationshipsSection'
+import { StorySection } from '@/components/home/StorySection'
 import { homeMeta } from '@/content/home'
 
 export function HomePage() {
@@ -17,14 +14,11 @@ export function HomePage() {
     <>
       <PageMeta {...homeMeta} />
       <HeroSection />
-      <WhatWeDoSection />
-      <WhyDevmirSection />
-      <HowWeWorkSection />
-      <WhoWeWorkWithSection />
-      <MarketReachSection />
-      <OurStorySection />
-      <OurJourneySection />
+      <StorySection />
+      <BothSidesSection />
       <OurBrandsSection />
+      <MarketReachSection />
+      <RelationshipsSection />
       <NewsSection />
       <FinalCTASection />
     </>

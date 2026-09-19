@@ -13,9 +13,9 @@ export const retailersMeta = {
 
 export const retailersContent = {
   hero: {
-    headline: 'Reliable Products. Established Supply. U.S.-Based Support.',
+    headline: 'Products and relationships built over 20 years.',
     subcopy:
-      'Devmir works with U.S. retailers, e-commerce marketplaces, wholesalers, and private-label customers seeking reliable products, experienced sourcing capabilities, and dependable operational support.',
+      'Devmir works with U.S. retailers, e-commerce marketplaces, wholesalers, and private-label customers. We combine international sourcing relationships with hands-on U.S. retail and marketplace experience.',
     image: retailersHeroImage,
     imageAlt:
       'Devmir sourcing, supply, and U.S.-based support for retailers and partners',
@@ -49,7 +49,7 @@ export const retailersContent = {
     eyebrow: 'Why Work With Devmir?',
     headline: 'Sourcing relationships backed by U.S. market experience',
     intro:
-      'Devmir combines established international sourcing relationships with more than two decades of hands-on U.S. retail, wholesale, and e-commerce experience. Devmir understands both sides of the supply relationship: the capabilities of manufacturers and the requirements of U.S. customers.',
+      'We combine established international sourcing relationships with more than two decades of hands-on U.S. retail, wholesale, and e-commerce experience. We understand both sides of the supply relationship: the capabilities of manufacturers and the requirements of U.S. customers.',
     points: [
       {
         title: 'Reliable Sourcing Network',
@@ -89,9 +89,9 @@ export const retailersContent = {
   },
 
   cta: {
-    headline: 'Looking for a reliable supply and operations partner?',
+    headline: 'Looking for a partner who knows both sides?',
     subcopy:
-      'Whether your company is looking for reliable products, private-label opportunities, sourcing support, or a broader supply partnership, Devmir can discuss how it can support your business.',
-    button: { label: 'Start a Conversation', href: '/contact/' },
+      'Whether your company is looking for reliable products, private-label opportunities, sourcing support, or a broader supply partnership, we would welcome a conversation.',
+    button: { label: 'Contact Devmir', href: '/contact/' },
   },
 } as const

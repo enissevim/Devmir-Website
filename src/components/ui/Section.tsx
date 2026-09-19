@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type SectionVariant = 'white' | 'surface' | 'navy'
+type SectionVariant = 'white' | 'surface' | 'ivory' | 'navy'
 
 interface SectionProps {
   children: ReactNode
@@ -13,6 +13,7 @@ interface SectionProps {
 const variantClasses: Record<SectionVariant, string> = {
   white: 'bg-white',
   surface: 'bg-surface',
+  ivory: 'bg-ivory',
   navy: 'bg-accent text-white',
 }
 

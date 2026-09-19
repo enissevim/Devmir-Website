@@ -11,7 +11,7 @@ export function OurBrandsSection() {
   const prefersReducedMotion = usePrefersReducedMotion()
 
   return (
-    <Section variant="surface" id="our-brands" ariaLabelledby="our-brands-heading">
+    <Section variant="white" id="our-brands" ariaLabelledby="our-brands-heading" className="py-16 lg:py-28">
       <Container>
         <Reveal>
           <SectionHeading
@@ -19,6 +19,8 @@ export function OurBrandsSection() {
             eyebrow={ourBrands.eyebrow}
             headline={ourBrands.headline}
             summary={ourBrands.summary}
+            tone="story"
+            className="max-w-none"
           />
         </Reveal>
 
@@ -33,7 +35,7 @@ export function OurBrandsSection() {
                     index % 2 === 1 ? 'lg:[direction:rtl]' : ''
                   }`}
                 >
-                  <div className={`${index % 2 === 1 ? 'lg:[direction:ltr]' : ''}`}>
+                  <div className={index % 2 === 1 ? 'lg:[direction:ltr]' : ''}>
                     <a
                       href={brand.href}
                       target="_blank"
@@ -64,7 +66,7 @@ export function OurBrandsSection() {
 
                   <div className={index % 2 === 1 ? 'lg:[direction:ltr]' : ''}>
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
-                      Devmir brand
+                      {brand.tagline}
                     </p>
                     <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-semibold tracking-[-0.02em] text-navy">
                       {brand.name}
