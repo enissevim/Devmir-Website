@@ -27,7 +27,7 @@ export function Reveal({
       initial={{ opacity: 0, y: direction === 'up' ? 12 : 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.42, delay: Math.min(delay, 0.2), ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.4, delay: Math.min(delay, 0.5), ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

@@ -1,12 +1,58 @@
+import { motion } from 'motion/react'
 import { PageMeta } from '@/components/seo/PageMeta'
-import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
-import { PageHero } from '@/components/ui/PageHero'
-import { ProofBand } from '@/components/ui/ProofBand'
+import { CTABand } from '@/components/ui/CTABand'
 import { Reveal } from '@/components/ui/Reveal'
+import { RetailerWordmarks } from '@/components/ui/RetailerWordmarks'
 import { Section } from '@/components/ui/Section'
-import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { SplitPageHero } from '@/components/ui/SplitPageHero'
 import { marketEntryContent, marketEntryMeta } from '@/content/market-entry'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
+
+function HelpStage({
+  number,
+  title,
+  description,
+  delay,
+}: {
+  number: string
+  title: string
+  description: string
+  delay: number
+}) {
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  return (
+    <Reveal delay={delay}>
+      <article className="relative border-l-2 border-border pl-5 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-5">
+        {!prefersReducedMotion && (
+          <motion.span
+            className="absolute left-0 top-0 hidden h-0.5 origin-left bg-accent sm:block"
+            style={{ width: '100%' }}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
+            aria-hidden="true"
+          />
+        )}
+        {prefersReducedMotion && (
+          <span
+            className="absolute left-0 top-0 hidden h-0.5 w-full bg-accent sm:block"
+            aria-hidden="true"
+          />
+        )}
+        <p className="text-sm font-semibold tracking-[0.08em] text-accent">{number}</p>
+        <h3 className="mt-2 font-display text-[22px] font-bold tracking-tight text-navy">
+          {title}
+        </h3>
+        <p className="mt-2.5 text-base leading-[1.6] text-muted">{description}</p>
+      </article>
+    </Reveal>
+  )
+}
 
 export function MarketEntryPage() {
   const content = marketEntryContent
@@ -15,154 +61,124 @@ export function MarketEntryPage() {
     <>
       <PageMeta {...marketEntryMeta} />
 
-      <PageHero
-        eyebrow="U.S. Market Entry"
+      <SplitPageHero
+        eyebrow={content.hero.eyebrow}
         headline={content.hero.headline}
-        subcopy={content.hero.subcopy}
+        paragraph={content.hero.paragraph}
+        primaryCta={content.hero.primaryCta}
+        secondaryCta={content.hero.secondaryCta}
         image={content.hero.image}
         imageAlt={content.hero.imageAlt}
         imageWidth={content.hero.imageWidth}
         imageHeight={content.hero.imageHeight}
+        headingId="market-entry-hero-heading"
       />
 
-      <Section variant="surface">
+      <Section variant="white" id="how-we-help" ariaLabelledby="how-we-help-heading">
         <Container>
           <Reveal>
-            <SectionHeading
-              eyebrow={content.whatWeProvide.eyebrow}
-              headline={content.whatWeProvide.headline}
+            <SectionHeader
+              id="how-we-help-heading"
+              eyebrow={content.howWeHelp.eyebrow}
+              title={content.howWeHelp.headline}
             />
+            <p className="measure-prose mt-5 type-body text-muted">{content.howWeHelp.intro}</p>
           </Reveal>
-          <div className="mt-12 grid gap-10 border-t border-border pt-12 md:grid-cols-3 md:gap-8">
-            {content.whatWeProvide.items.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <h2 className="font-display text-xl font-semibold text-navy">{item.title}</h2>
-                <p className="mt-3 text-base leading-relaxed text-muted">{item.description}</p>
-              </Reveal>
+
+          <div className="mt-14 grid gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-8">
+            {content.howWeHelp.stages.map((stage, index) => (
+              <HelpStage
+                key={stage.title}
+                number={stage.number}
+                title={stage.title}
+                description={stage.description}
+                delay={index * 0.15}
+              />
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section variant="white">
+      <Section variant="surface" ariaLabelledby="who-its-for-heading">
         <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.howWeSupport.eyebrow}
-              headline={content.howWeSupport.headline}
-              summary={content.howWeSupport.intro}
+          <Reveal className="mx-auto max-w-[720px] text-center">
+            <SectionHeader
+              id="who-its-for-heading"
+              eyebrow={content.whoItsFor.eyebrow}
+              title={content.whoItsFor.headline}
+              align="center"
             />
+            <p className="mt-5 type-body text-muted">{content.whoItsFor.intro}</p>
           </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {content.howWeSupport.items.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <div className="border-t border-border pt-8">
-                  <h2 className="font-display text-lg font-semibold text-navy">{item.title}</h2>
-                  <p className="mt-3 text-base leading-relaxed text-muted">{item.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
 
-      <Section variant="surface">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.whoIsThisFor.eyebrow}
-              headline={content.whoIsThisFor.headline}
-              summary={content.whoIsThisFor.intro}
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-            {content.whoIsThisFor.audiences.map((audience, index) => (
-              <Reveal key={audience.title} delay={index * 0.05}>
-                <div className="border-t border-border pt-8">
-                  <h2 className="font-display text-lg font-semibold text-navy">{audience.title}</h2>
-                  <p className="mt-3 text-base leading-relaxed text-muted">{audience.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section variant="white">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.whyDevmir.eyebrow}
-              headline={content.whyDevmir.headline}
-              summary={content.whyDevmir.intro}
-            />
-          </Reveal>
-          <div className="mt-12 space-y-8">
-            {content.whyDevmir.points.map((point, index) => (
-              <Reveal key={point.title} delay={index * 0.05}>
-                <div
-                  className={`border-t border-border pt-8 ${
-                    'featured' in point && point.featured
-                      ? 'bg-surface -mx-5 px-5 sm:-mx-8 sm:px-8 md:mx-0 md:px-8 md:py-8'
-                      : ''
-                  }`}
+          <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8">
+            {content.whoItsFor.audiences.map((audience, index) => (
+              <Reveal key={audience.title} delay={index * 0.1}>
+                <Card
+                  as="article"
+                  className="h-full rounded-2xl p-9 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(14,26,20,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                 >
-                  <h2 className="font-display text-lg font-semibold text-navy">{point.title}</h2>
-                  <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted">{point.description}</p>
-                </div>
+                  <h3 className="font-display text-[22px] font-bold tracking-tight text-navy">
+                    {audience.title}
+                  </h3>
+                  <p className="mt-2.5 text-base leading-[1.6] text-muted">
+                    {audience.description}
+                  </p>
+                </Card>
               </Reveal>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section variant="surface" className="pb-0">
+      <Section variant="white" ariaLabelledby="why-devmir-heading">
         <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.proof.eyebrow}
-              headline={content.proof.headline}
-              summary={content.proof.summary}
-            />
-          </Reveal>
-        </Container>
-        <Reveal className="mt-12 border-y border-border bg-white py-8 sm:py-12">
-          <Container>
-            <ProofBand
-              image={content.proof.image}
-              alt={content.proof.imageAlt}
-              caption={content.proof.caption}
-              variant="prominent"
-            />
-            <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted">
-              {content.proof.disclaimer}
-            </p>
-          </Container>
-        </Reveal>
-      </Section>
-
-      <Section variant="navy">
-        <Container>
-          <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-semibold text-white">
-                {content.cta.headline}
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/75">{content.cta.subcopy}</p>
-              <div className="mt-10">
-                <Button
-                  as="a"
-                  href={content.cta.button.href}
-                  variant="secondary"
-                  className="border-white/20 bg-white text-navy hover:border-white hover:bg-white/90"
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
+              <div className="lg:sticky lg:top-28">
+                <p className="type-label text-accent">{content.whyDevmir.eyebrow}</p>
+                <h2
+                  id="why-devmir-heading"
+                  className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-navy text-balance"
                 >
-                  {content.cta.button.label}
-                </Button>
+                  {content.whyDevmir.headline}
+                </h2>
+                <p className="mt-6 text-lg font-medium leading-[1.6] text-navy sm:text-xl">
+                  {content.whyDevmir.lead}
+                </p>
               </div>
-            </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-7" delay={0.1}>
+              <ul className="divide-y divide-border border-y border-border">
+                {content.whyDevmir.points.map((point) => (
+                  <li key={point.title} className="py-7">
+                    <h3 className="font-display text-xl font-bold tracking-tight text-navy">
+                      {point.title}
+                    </h3>
+                    <p className="mt-2 text-base leading-[1.6] text-muted">{point.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+
+          <Reveal className="mt-[4.5rem] lg:mt-[72px]" delay={0.15}>
+            <RetailerWordmarks
+              retailers={content.whyDevmir.retailers}
+              caption={content.whyDevmir.caption}
+              panel
+            />
           </Reveal>
         </Container>
       </Section>
+
+      <CTABand
+        headline={content.cta.headline}
+        line={content.cta.line}
+        cta={content.cta.cta}
+        headingId="market-entry-cta-heading"
+      />
     </>
   )
 }

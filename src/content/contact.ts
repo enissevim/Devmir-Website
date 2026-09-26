@@ -11,35 +11,29 @@ export const contactMeta = {
 
 export const contactContent = {
   hero: {
-    headline: 'Want to talk?',
+    headline: "Let's Start a Conversation",
     subcopy:
-      'Tell us a little about yourself and what you are working on. We will get back to you.',
+      "Have a product you'd like to bring to the U.S.? Looking for a manufacturing or sourcing partner? Interested in retail, wholesale or e-commerce opportunities?\nTell us a little about what you're working on. We'd be happy to learn more.",
   },
-
-  audiences: [
-    {
-      title: 'International manufacturers and brands',
-      description:
-        'Tell us about your products and your U.S. plans. We can talk through marketplace access, fulfillment, and what it actually takes to sell here.',
-    },
-    {
-      title: 'U.S. retailers and partners',
-      description:
-        'Tell us about your sourcing needs or partnership ideas. We bring more than 20 years of selling in U.S. retail and online.',
-    },
-  ],
 
   form: {
     name: 'contact',
     fields: {
-      audienceOptions: [
-        { value: 'manufacturer', label: 'International Manufacturer or Brand' },
-        { value: 'retailer', label: 'U.S. Retailer or Partner' },
+      helpOptions: [
+        { value: 'market-entry', label: 'U.S. Market Entry' },
+        { value: 'manufacturing', label: 'Manufacturing' },
+        { value: 'sourcing', label: 'Sourcing' },
+        { value: 'retail-wholesale', label: 'Retail / Wholesale' },
+        { value: 'private-label', label: 'Private Label' },
+        { value: 'ecommerce', label: 'E-Commerce' },
+        { value: 'fulfillment', label: 'Fulfillment' },
         { value: 'other', label: 'Other' },
       ],
     },
-    submitLabel: 'Send Message',
-    emailCta: 'Email Devmir',
+    submitLabel: "LET'S TALK",
+    emailCta: 'Email us',
+    businessLabel: 'Tell us a little about your business',
+    helpLabel: 'What can we help with?',
     successMessage:
       'Thanks for reaching out. We will read your message and get back to you soon.',
   },

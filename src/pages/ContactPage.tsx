@@ -77,29 +77,7 @@ export function ContactPage() {
         subcopy={content.hero.subcopy}
       />
 
-      <Section variant="white" className="pb-0">
-        <Reveal className="bg-accent">
-          <div className="grid lg:grid-cols-2">
-            {content.audiences.map((audience, index) => (
-              <div
-                key={audience.title}
-                className={`flex min-h-[240px] flex-col justify-center px-5 py-12 text-white sm:px-8 lg:min-h-[280px] lg:px-16 lg:py-16 xl:px-20 ${
-                  index > 0 ? 'border-t border-white/20 lg:border-t-0 lg:border-l' : ''
-                }`}
-              >
-                <h2 className="font-display text-[clamp(1.375rem,2.5vw,1.75rem)] font-semibold leading-tight text-white">
-                  {audience.title}
-                </h2>
-                <p className="mt-4 max-w-md text-base leading-relaxed text-white/75">
-                  {audience.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </Section>
-
-      <Section variant="surface">
+      <Section variant="white">
         <Container>
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-4">
@@ -165,13 +143,6 @@ export function ContactPage() {
                     </label>
                   </p>
 
-                  <div>
-                    <h2 className="font-display text-lg font-semibold text-navy">Send a message</h2>
-                    <p className="mt-2 text-sm text-muted">
-                      We will respond as soon as possible.
-                    </p>
-                  </div>
-
                   {error && (
                     <p className="text-sm text-accent" role="alert">
                       {error}
@@ -235,12 +206,12 @@ export function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="audience" className="mb-2 block text-sm font-medium text-charcoal">
-                      I am a...
+                    <label htmlFor="help" className="mb-2 block text-sm font-medium text-charcoal">
+                      {content.form.helpLabel}
                     </label>
                     <select
-                      id="audience"
-                      name="audience"
+                      id="help"
+                      name="help"
                       required
                       className="w-full border border-border bg-white px-4 py-3 text-sm text-charcoal focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/20"
                       defaultValue=""
@@ -248,7 +219,7 @@ export function ContactPage() {
                       <option value="" disabled>
                         Select one
                       </option>
-                      {content.form.fields.audienceOptions.map((option) => (
+                      {content.form.fields.helpOptions.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
                         </option>
@@ -258,7 +229,7 @@ export function ContactPage() {
 
                   <div>
                     <label htmlFor="message" className="mb-2 block text-sm font-medium text-charcoal">
-                      Message
+                      {content.form.businessLabel}
                     </label>
                     <textarea
                       id="message"

@@ -19,7 +19,28 @@ export function MobileMenu({ open, onClose, pathname, hash = '' }: MobileMenuPro
     if (!open) return
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab' || !panelRef.current) return
+
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])'
+      )
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
 
     document.addEventListener('keydown', handleKeyDown)
@@ -73,11 +94,12 @@ export function MobileMenu({ open, onClose, pathname, hash = '' }: MobileMenuPro
 
             if (isHash) {
               const active = item.href === '/#our-brands' && pathname === '/' && hash === '#our-brands'
+              const hashValue = item.href.slice(1)
 
               return (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={{ pathname: '/', hash: hashValue }}
                   onClick={onClose}
                   className={`rounded-sm px-2 py-4 font-display text-2xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     active ? 'text-accent' : 'text-navy hover:text-accent'
@@ -85,7 +107,7 @@ export function MobileMenu({ open, onClose, pathname, hash = '' }: MobileMenuPro
                   aria-current={active ? 'page' : undefined}
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             }
 

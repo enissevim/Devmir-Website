@@ -2,8 +2,8 @@ export const site = {
   name: 'Devmir Legwear Inc.',
   shortName: 'Devmir',
   url: 'https://devmir.com',
-  tagline: 'Connecting Global Manufacturing with U.S. Retail & E-Commerce',
-  positioning: 'Connecting Quality Manufacturing with the U.S. Market',
+  tagline: 'From manufacturing to the customer.',
+  positioning: 'From manufacturing to the customer.',
 
   contact: {
     company: 'Devmir Legwear Inc.',
@@ -28,7 +28,6 @@ export const site = {
   ],
 
   footer: {
-    tagline: 'Connecting Global Manufacturing with U.S. Retail & E-Commerce',
     nav: [
       { label: 'U.S. Market Entry', href: '/u-s-market-entry/' },
       { label: 'Retailers & Partners', href: '/u-s-retailers-partners/' },

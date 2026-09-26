@@ -35,7 +35,9 @@ export function PageHero({
               <h1 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-bold leading-[1.06] tracking-[-0.025em] text-navy text-balance">
                 {headline}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{subcopy}</p>
+              <p className="mt-6 max-w-2xl whitespace-pre-line text-lg leading-relaxed text-muted">
+                {subcopy}
+              </p>
               {children && <div className="mt-8">{children}</div>}
             </div>
 

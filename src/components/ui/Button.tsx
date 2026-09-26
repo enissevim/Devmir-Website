@@ -31,7 +31,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   'primary-outline':
     'bg-accent text-white hover:bg-accent-hover border border-white hover:border-white focus-visible:ring-white',
   'green-light':
-    'bg-green-light text-white hover:bg-green-light/90 border border-green-light hover:border-white/40 focus-visible:ring-accent',
+    'bg-green-light text-navy hover:bg-green-light/90 border border-green-light hover:border-accent/40 focus-visible:ring-accent',
   secondary:
     'bg-white text-navy border border-border hover:border-accent focus-visible:ring-accent',
   'outline-light':
@@ -60,7 +60,7 @@ export function Button(props: ButtonProps) {
       )
     }
 
-    if (props.href.startsWith('/#')) {
+    if (props.href.startsWith('#') || props.href.startsWith('/#')) {
       return (
         <a href={props.href} className={classes}>
           {children}

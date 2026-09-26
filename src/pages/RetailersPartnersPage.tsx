@@ -1,11 +1,12 @@
 import { PageMeta } from '@/components/seo/PageMeta'
-import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
-import { PageHero } from '@/components/ui/PageHero'
-import { ProofBand } from '@/components/ui/ProofBand'
+import { CTABand } from '@/components/ui/CTABand'
 import { Reveal } from '@/components/ui/Reveal'
+import { RetailerWordmarks } from '@/components/ui/RetailerWordmarks'
 import { Section } from '@/components/ui/Section'
-import { SectionHeading } from '@/components/ui/SectionHeading'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+import { SplitPageHero } from '@/components/ui/SplitPageHero'
 import { retailersContent, retailersMeta } from '@/content/retailers-partners'
 
 export function RetailersPartnersPage() {
@@ -15,102 +16,117 @@ export function RetailersPartnersPage() {
     <>
       <PageMeta {...retailersMeta} />
 
-      <PageHero
-        eyebrow="Retailers & Partners"
+      <SplitPageHero
+        eyebrow={content.hero.eyebrow}
         headline={content.hero.headline}
-        subcopy={content.hero.subcopy}
+        paragraph={content.hero.paragraph}
+        primaryCta={content.hero.primaryCta}
+        secondaryCta={content.hero.secondaryCta}
         image={content.hero.image}
         imageAlt={content.hero.imageAlt}
         imageWidth={content.hero.imageWidth}
         imageHeight={content.hero.imageHeight}
+        headingId="retailers-hero-heading"
       />
 
-      <Section variant="surface">
+      <Section variant="white" id="what-we-offer" ariaLabelledby="what-we-offer-heading">
         <Container>
           <Reveal>
-            <SectionHeading
-              eyebrow={content.support.eyebrow}
-              headline={content.support.headline}
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-10 border-t border-border pt-12 md:grid-cols-3 md:gap-8">
-            {content.support.items.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <h2 className="font-display text-xl font-semibold text-navy">{item.title}</h2>
-                <p className="mt-3 text-base leading-relaxed text-muted">{item.description}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section variant="white">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.whyDevmir.eyebrow}
-              headline={content.whyDevmir.headline}
-              summary={content.whyDevmir.intro}
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {content.whyDevmir.points.map((point, index) => (
-              <Reveal key={point.title} delay={index * 0.05}>
-                <div className="border-t border-border pt-8">
-                  <h2 className="font-display text-lg font-semibold text-navy">{point.title}</h2>
-                  <p className="mt-3 text-base leading-relaxed text-muted">{point.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section variant="surface" className="pb-0">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.activeInMarket.eyebrow}
-              headline={content.activeInMarket.headline}
-              summary={content.activeInMarket.intro}
-            />
-            <p className="mt-6 font-display text-xs font-semibold uppercase tracking-[0.1em] text-muted sm:text-sm">
-              {content.activeInMarket.retailers}
-            </p>
-          </Reveal>
-        </Container>
-        <Reveal className="mt-12 border-y border-border bg-white py-8 sm:py-12">
-          <Container>
-            <ProofBand
-              image={content.activeInMarket.image}
-              alt={content.activeInMarket.imageAlt}
-              caption={content.activeInMarket.caption}
-              variant="prominent"
-            />
-            <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-muted">
-              {content.activeInMarket.summary}
-            </p>
-          </Container>
-        </Reveal>
-      </Section>
-
-      <Section variant="navy">
-        <Container>
-          <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-semibold text-white">
-                {content.cta.headline}
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/75">{content.cta.subcopy}</p>
-              <div className="mt-10">
-                <Button as="a" href={content.cta.button.href} variant="primary-outline">
-                  {content.cta.button.label}
-                </Button>
-              </div>
+            <div className="max-w-[720px]">
+              <SectionHeader
+                id="what-we-offer-heading"
+                eyebrow={content.whatWeOffer.eyebrow}
+                title={content.whatWeOffer.headline}
+              />
+              <p className="mt-5 type-body text-muted">{content.whatWeOffer.intro}</p>
             </div>
           </Reveal>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8">
+            {content.whatWeOffer.services.map((service, index) => (
+              <Reveal key={service.title} delay={index * 0.1}>
+                <Card
+                  as="article"
+                  className="h-full rounded-2xl p-9 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(14,26,20,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                >
+                  <span className="mb-4 block h-0.5 w-8 bg-accent" aria-hidden="true" />
+                  <h3 className="font-display text-[22px] font-bold tracking-tight text-navy">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2.5 text-base leading-[1.6] text-muted">
+                    {service.description}
+                  </p>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </Section>
+
+      <Section variant="surface" ariaLabelledby="why-devmir-retailers-heading">
+        <Container>
+          <Reveal className="mx-auto max-w-[760px] text-center">
+            <SectionHeader
+              id="why-devmir-retailers-heading"
+              eyebrow={content.whyDevmir.eyebrow}
+              title={content.whyDevmir.headline}
+              align="center"
+            />
+            <p className="mt-4 text-lg font-medium leading-[1.6] text-navy sm:text-xl">
+              {content.whyDevmir.lead}
+            </p>
+          </Reveal>
+
+          <Reveal className="mt-16" delay={0.1}>
+            <ul className="grid divide-y divide-border lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+              {content.whyDevmir.points.map((point, index) => (
+                <li
+                  key={point.title}
+                  className={`py-7 lg:py-0 lg:px-10 ${
+                    index === 0 ? 'lg:pl-0' : ''
+                  } ${index === content.whyDevmir.points.length - 1 ? 'lg:pr-0' : ''}`}
+                >
+                  <h3 className="font-display text-xl font-bold tracking-tight text-navy">
+                    {point.title}
+                  </h3>
+                  <p className="mt-2.5 text-base leading-[1.6] text-muted">
+                    {point.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section variant="white" ariaLabelledby="active-market-heading">
+        <Container>
+          <Reveal className="mx-auto max-w-[720px] text-center">
+            <SectionHeader
+              id="active-market-heading"
+              eyebrow={content.activeInMarket.eyebrow}
+              title={content.activeInMarket.headline}
+              align="center"
+            />
+            <p className="mt-5 type-body text-muted">{content.activeInMarket.paragraph}</p>
+          </Reveal>
+
+          <Reveal className="mt-12" delay={0.1}>
+            <RetailerWordmarks
+              retailers={content.activeInMarket.retailers}
+              caption={content.activeInMarket.caption}
+              panel
+            />
+          </Reveal>
+        </Container>
+      </Section>
+
+      <CTABand
+        headline={content.cta.headline}
+        line={content.cta.line}
+        cta={content.cta.cta}
+        headingId="retailers-cta-heading"
+      />
     </>
   )
 }

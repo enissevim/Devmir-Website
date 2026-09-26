@@ -35,13 +35,14 @@ function NavLink({
   )
 
   if (href.startsWith('/#')) {
+    const hash = href.slice(1)
     return (
-      <a
-        href={href}
+      <Link
+        to={{ pathname: '/', hash }}
         className={`${baseClass} text-charcoal hover:text-accent`}
       >
         {content}
-      </a>
+      </Link>
     )
   }
 
@@ -86,9 +87,9 @@ export function Header() {
       </a>
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
           scrolled
-            ? 'border-b border-border bg-white shadow-[0_1px_0_rgba(11,20,36,0.04)]'
+            ? 'border-b border-border bg-white/90 shadow-[0_1px_0_rgba(11,20,36,0.04)] backdrop-blur-md'
             : 'border-b border-transparent bg-white'
         }`}
       >

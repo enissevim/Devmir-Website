@@ -20,7 +20,7 @@ export function ScrollToHash() {
           block: 'start',
         })
       }
-    }, 100)
+    }, 150)
 
     return () => window.clearTimeout(timer)
   }, [pathname, hash])

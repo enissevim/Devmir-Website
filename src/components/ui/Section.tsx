@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type SectionVariant = 'white' | 'surface' | 'ivory' | 'navy'
+type SectionVariant = 'white' | 'surface' | 'ivory' | 'navy' | 'accent'
 
 interface SectionProps {
   children: ReactNode
@@ -14,7 +14,8 @@ const variantClasses: Record<SectionVariant, string> = {
   white: 'bg-white',
   surface: 'bg-surface',
   ivory: 'bg-ivory',
-  navy: 'bg-accent text-white',
+  navy: 'bg-navy text-white',
+  accent: 'bg-accent text-white',
 }
 
 export function Section({
@@ -28,7 +29,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={ariaLabelledby}
-      className={`py-14 lg:py-24 ${variantClasses[variant]} ${className}`}
+      className={`py-16 lg:py-24 ${variantClasses[variant]} ${className}`}
     >
       {children}
     </section>

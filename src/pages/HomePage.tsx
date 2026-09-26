@@ -2,11 +2,9 @@ import { PageMeta } from '@/components/seo/PageMeta'
 import { BothSidesSection } from '@/components/home/BothSidesSection'
 import { FinalCTASection } from '@/components/home/FinalCTASection'
 import { HeroSection } from '@/components/home/HeroSection'
-import { MarketReachSection } from '@/components/home/MarketReachSection'
-import { NewsSection } from '@/components/home/NewsSection'
 import { OurBrandsSection } from '@/components/home/OurBrandsSection'
-import { RelationshipsSection } from '@/components/home/RelationshipsSection'
-import { StorySection } from '@/components/home/StorySection'
+import { RetailExperienceSection } from '@/components/home/RetailExperienceSection'
+import { WhoWeWorkWithSection } from '@/components/home/WhoWeWorkWithSection'
 import { homeMeta } from '@/content/home'
 
 export function HomePage() {
@@ -14,12 +12,10 @@ export function HomePage() {
     <>
       <PageMeta {...homeMeta} />
       <HeroSection />
-      <StorySection />
       <BothSidesSection />
+      <WhoWeWorkWithSection />
+      <RetailExperienceSection />
       <OurBrandsSection />
-      <MarketReachSection />
-      <RelationshipsSection />
-      <NewsSection />
       <FinalCTASection />
     </>
   )

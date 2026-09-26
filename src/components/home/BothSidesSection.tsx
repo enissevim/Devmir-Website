@@ -2,62 +2,116 @@ import { homeContent } from '@/content/home'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { Section } from '@/components/ui/Section'
-import { StoryHeadline } from '@/components/ui/StoryHeadline'
+
+function SideCard({
+  label,
+  descriptor,
+  items,
+}: {
+  label: string
+  descriptor: string
+  items: readonly string[]
+}) {
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-border bg-white p-7 shadow-[0_1px_2px_rgba(14,26,20,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(14,26,20,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:shadow-[0_1px_2px_rgba(14,26,20,0.04)] lg:p-10">
+      <h3 className="font-display text-[28px] font-bold tracking-[-0.01em] text-navy">
+        {label}
+      </h3>
+      <p className="mt-1.5 text-[15px] leading-relaxed text-muted sm:text-base">{descriptor}</p>
+      <div className="my-6 h-px w-full bg-border" aria-hidden="true" />
+      <ul className="list-none">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="border-b border-border py-3.5 text-base font-medium text-charcoal last:border-b-0"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </article>
+  )
+}
+
+function FlowConnector() {
+  return (
+    <div
+      className="relative my-6 flex w-full items-center justify-center lg:my-0 lg:w-20"
+      aria-hidden="true"
+    >
+      <span className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-border lg:inset-x-0 lg:inset-y-auto lg:left-0 lg:top-1/2 lg:h-px lg:w-full lg:translate-x-0" />
+      <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-[0_4px_12px_rgba(14,26,20,0.12)]">
+        <svg
+          className="h-5 w-5 rotate-90 lg:rotate-0"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path
+            d="M3 10h12M11 5l5 5-5 5"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+    </div>
+  )
+}
 
 export function BothSidesSection() {
   const { bothSides } = homeContent
-  const panels = [bothSides.making, bothSides.selling]
 
   return (
-    <Section variant="white" ariaLabelledby="both-sides-heading" className="py-16 lg:py-28">
+    <Section variant="white" ariaLabelledby="both-sides-heading">
       <Container>
         <Reveal>
-          <p className="mb-4 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-accent">
-            {bothSides.eyebrow}
-          </p>
-          <StoryHeadline id="both-sides-heading">{bothSides.headline}</StoryHeadline>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{bothSides.bridge}</p>
+          <div className="mx-auto max-w-[720px] text-center">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-accent sm:text-sm">
+              {bothSides.eyebrow}
+            </p>
+            <h2
+              id="both-sides-heading"
+              className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] text-navy text-balance"
+            >
+              {bothSides.title}
+            </h2>
+            <p className="mt-4 text-lg leading-[1.6] text-muted sm:text-xl">
+              {bothSides.intro}
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-10">
-          {panels.map((panel, index) => (
-            <Reveal key={panel.title} delay={0.08 + index * 0.04}>
-              <div className="flex h-full flex-col overflow-hidden border border-border border-t-4 border-t-green bg-ivory">
-                <div className="p-8 lg:p-10">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="font-display text-[clamp(1.375rem,2.5vw,1.625rem)] font-semibold leading-tight text-navy">
-                        {panel.title}
-                      </h3>
-                    </div>
-                    <span
-                      className="font-display text-3xl font-bold leading-none text-green/15"
-                      aria-hidden="true"
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
+        <div className="mt-16 grid items-stretch lg:grid-cols-[1fr_auto_1fr]">
+          <Reveal delay={0.1}>
+            <SideCard
+              label={bothSides.making.label}
+              descriptor={bothSides.making.descriptor}
+              items={bothSides.making.items}
+            />
+          </Reveal>
 
-                  <ul className="mt-8 grid gap-x-6 gap-y-3 sm:grid-cols-2">
-                    {panel.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm leading-snug text-charcoal">
-                        <span
-                          className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-green"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <Reveal delay={0.2} className="flex items-center">
+            <FlowConnector />
+          </Reveal>
 
-                <div className="mt-auto border-t border-border bg-white px-8 py-6 lg:px-10 lg:py-7">
-                  <p className="text-base leading-relaxed text-muted">{panel.description}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+          <Reveal delay={0.3}>
+            <SideCard
+              label={bothSides.selling.label}
+              descriptor={bothSides.selling.descriptor}
+              items={bothSides.selling.items}
+            />
+          </Reveal>
         </div>
+
+        <Reveal className="mt-14" delay={0.4}>
+          <div className="mx-auto max-w-[640px] text-center">
+            <span className="mx-auto mb-5 block h-0.5 w-10 bg-accent" aria-hidden="true" />
+            <p className="text-lg font-medium leading-[1.6] text-navy sm:text-xl">
+              {bothSides.closing}
+            </p>
+          </div>
+        </Reveal>
       </Container>
     </Section>
   )
