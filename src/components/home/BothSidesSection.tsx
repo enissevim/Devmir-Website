@@ -63,7 +63,7 @@ export function BothSidesSection() {
   const { bothSides } = homeContent
 
   return (
-    <Section variant="white" ariaLabelledby="both-sides-heading">
+    <Section variant="white" ariaLabelledby="both-sides-heading" className="!pb-10 lg:!pb-12">
       <Container>
         <Reveal>
           <div className="mx-auto max-w-[720px] text-center">
@@ -104,7 +104,7 @@ export function BothSidesSection() {
           </Reveal>
         </div>
 
-        <Reveal className="mt-14" delay={0.4}>
+        <Reveal className="mt-10 lg:mt-12" delay={0.4}>
           <div className="mx-auto max-w-[640px] text-center">
             <span className="mx-auto mb-5 block h-0.5 w-10 bg-accent" aria-hidden="true" />
             <p className="text-lg font-medium leading-[1.6] text-navy sm:text-xl">

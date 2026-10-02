@@ -9,7 +9,7 @@ export function WhoWeWorkWithSection() {
   const { whoWeWorkWith } = homeContent
 
   return (
-    <Section variant="white" ariaLabelledby="who-we-work-with-heading">
+    <Section variant="white" ariaLabelledby="who-we-work-with-heading" className="!pt-10 lg:!pt-12">
       <Container>
         <Reveal>
           <SectionHeader
