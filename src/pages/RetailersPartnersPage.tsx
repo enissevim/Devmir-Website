@@ -1,9 +1,9 @@
+import platformsImage from '@/assets/images/platforms-for-devmir.webp'
 import { PageMeta } from '@/components/seo/PageMeta'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
 import { CTABand } from '@/components/ui/CTABand'
 import { Reveal } from '@/components/ui/Reveal'
-import { RetailerWordmarks } from '@/components/ui/RetailerWordmarks'
 import { Section } from '@/components/ui/Section'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { SplitPageHero } from '@/components/ui/SplitPageHero'
@@ -112,10 +112,14 @@ export function RetailersPartnersPage() {
           </Reveal>
 
           <Reveal className="mt-12" delay={0.1}>
-            <RetailerWordmarks
-              retailers={content.activeInMarket.retailers}
-              caption={content.activeInMarket.caption}
-              panel
+            <img
+              src={platformsImage}
+              alt="U.S. retail and marketplace presence: Kohl's, Target, JCPenney, Amazon, Walmart, private label, and more."
+              width={1600}
+              height={900}
+              className="mx-auto w-full max-w-5xl"
+              loading="lazy"
+              decoding="async"
             />
           </Reveal>
         </Container>

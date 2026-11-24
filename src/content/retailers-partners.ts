@@ -78,9 +78,6 @@ export const retailersContent = {
     headline: 'An Operating Company With Current U.S. Experience.',
     paragraph:
       'We sell through major national retailers, leading online marketplaces, wholesale customers, and private-label programs, which gives us practical knowledge of retailer requirements, marketplace operations, inventory, fulfillment, and customer service.',
-    retailers: ["Kohl's", 'Target', 'JCPenney', 'Amazon', 'Walmart'],
-    caption:
-      'Selected channels. Our U.S. network also includes additional retail, e-commerce, wholesale, and private-label relationships.',
   },
 
   cta: {
