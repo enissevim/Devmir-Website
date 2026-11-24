@@ -101,8 +101,6 @@ export const homeContent = {
     headline: "We've Been Around the U.S. Retail Market for a While.",
     summary:
       "We've worked with national retailers, wholesale customers and online marketplaces, and we know what it takes to bring products from the factory to the customer.",
-    retailers: ["Kohl's", 'Target', 'JCPenney', 'Amazon', 'Walmart'],
-    caption: 'and other national retailers.',
   },
 
   ourBrands: {
